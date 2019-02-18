@@ -1,15 +1,21 @@
 import express from 'express'
+import bodyParser from 'body-parser'
+import { LoginController } from './controllers'
+
 const app = express()
 const port = process.env.PORT || 8080
 
-// define a route handler for the default home page
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+app.use('/login', LoginController)
+
 app.get('/', (req, res) => {
   res.json({
     message: 'Hello world'
   })
 })
 
-// start the Express server
 app.listen(port, () => {
   console.log(`server started at http://localhost:${port}`)
 })
