@@ -1,2 +1,2 @@
 export * from './login.controller'
-export * from './mock.controller'
+export * from './user.controller'
