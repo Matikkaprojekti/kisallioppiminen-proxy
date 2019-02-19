@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 import express from 'express'
 import bodyParser from 'body-parser'
-import { LoginController, UserController } from './controllers'
+import { LoginController, UserController, ScoreboardController } from './controllers'
 import cp from 'cookie-parser'
 
 const app = express()
@@ -13,7 +13,8 @@ app.use(bodyParser.json())
 app.use(cp())
 
 app.use('/login', LoginController)
-app.use('/mock', UserController)
+app.use('/user', UserController)
+app.use('/', ScoreboardController)
 
 app.get('/', (req, res) => {
   res.json({
