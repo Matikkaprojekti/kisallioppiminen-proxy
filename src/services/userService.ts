@@ -1,5 +1,7 @@
 import request from 'request-promise'
-import {getUserWithSessionCookie} from '../clients/oldApiClient'
+import {client} from '../clients/apiClient'
+
+const {getUserWithSessionCookie} = client
 
 export function getUser(sessionCookie: string) {
   return getUserWithSessionCookie(sessionCookie)

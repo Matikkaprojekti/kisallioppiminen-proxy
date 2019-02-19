@@ -9,4 +9,4 @@ router.get('/', (req: Request, res: Response) => {
     .catch(e => res.status(401).json(e))
 })
 
-export const UserRouter: Router = router
+export const UserController: Router = router

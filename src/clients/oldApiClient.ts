@@ -12,7 +12,6 @@ export function getUserWithSessionCookie(userSessionCookie: string): Bluebird<Us
       Cookie: `_kisallioppiminen_server_session=${userSessionCookie}`
     }
   }
-  console.log(opts)
   return request
     .get(resolveUrl('/user/get_session_user'), opts)
     .then(JSON.parse)

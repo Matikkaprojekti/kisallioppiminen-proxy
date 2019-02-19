@@ -1,4 +1,5 @@
 import * as OldApiClient from './oldApiClient'
+import * as MockApiClient from './mockApiClient'
 
 export interface UserApiResponse {
   has_sign_in: {
@@ -9,6 +10,8 @@ export interface UserApiResponse {
   } | null
 }
 
-const clients: typeof OldApiClient = {
-  getUserWithSessionCookie: OldApiClient.getUserWithSessionCookie
+const selectedClient = process.env.NODE_ENV === 'test' ? MockApiClient : OldApiClient
+
+export const client: typeof OldApiClient & typeof MockApiClient = {
+  getUserWithSessionCookie: selectedClient.getUserWithSessionCookie
 }
