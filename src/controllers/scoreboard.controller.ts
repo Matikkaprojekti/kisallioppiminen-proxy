@@ -1,15 +1,15 @@
 import { Router, Request, Response } from 'express'
 import { client } from '../clients/apiClient'
+import { fetchUser, UserRequest } from '../middlewares/userAuthMiddleware'
 
 const { getAllScoreboards } = client
 
 const router: Router = Router()
 
 /* Return all scoreboards of teacher with certain id */
-router.get('/teachers/:id/scoreboards', (req: Request, res: Response) => {
-  const teacherId = req.params.id
-
-  getAllScoreboards(req.cookies._kisallioppiminen_server_session).then(scoreboards => res.json(scoreboards))
+router.get('/teachers/me/scoreboards', fetchUser, (req: UserRequest, res: Response) => {
+  const teacherId = req.user.id
+  getAllScoreboards(req.cookies._kisallioppiminen_server_session, teacherId).then(scoreboards => res.json(scoreboards))
 })
 
 /*

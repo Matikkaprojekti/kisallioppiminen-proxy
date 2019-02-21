@@ -22,14 +22,14 @@ export function getUserWithSessionCookie(userSessionCookie: string): Bluebird<Us
     })
 }
 
-export function getAllScoreboards(userSessionCookie: string): Bluebird<ApiCourseObject[]> {
+export function getAllScoreboards(userSessionCookie: string, teacherId: number): Bluebird<ApiCourseObject[]> {
   const opts: request.RequestPromiseOptions = {
     headers: {
       Cookie: `_kisallioppiminen_server_session=${userSessionCookie}`
     }
   }
   return request
-    .get(resolveUrl('/teachers/43/scoreboards'), opts) // 43 on kovakoodattu ja tulee muuttaa tähän oman tunnuksen id...
+    .get(resolveUrl(`/teachers/${teacherId}/scoreboards`), opts) // 43 on kovakoodattu ja tulee muuttaa tähän oman tunnuksen id...
     .then(JSON.parse)
     .then(res => res)
     .catch(e => {
