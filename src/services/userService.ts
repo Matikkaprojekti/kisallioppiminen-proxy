@@ -1,4 +1,3 @@
-import request from 'request-promise'
 import {client} from '../clients/apiClient'
 
 const {getUserWithSessionCookie} = client
