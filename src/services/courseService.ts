@@ -21,7 +21,6 @@ function validateCourse(course: Course): ApiNewCoursePostObject {
   }
   const {error, value} = courseSchema.validate(course)
   if (error) {
-    console.log(error)
     return null
   }
   const {startdate, enddate} = value

@@ -7,6 +7,7 @@ router.post('/', (req: Request, res: Response) => {
   const {body} = req
   console.log(req.body)
   createCourse(req.cookies._kisallioppiminen_server_session, body)
+    .then(() => res.status(200).send(''))
     .catch((e: any) => {
       console.error(e)
       res.status(e.statusCode || 500).json(e.body)

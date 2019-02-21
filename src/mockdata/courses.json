@@ -1,0 +1,7 @@
+{
+  "53": [
+    { "id": 44, "coursekey": "heimetestataan", "html_id": "may1", "startdate": "2019-02-21", "enddate": "2019-02-23", "name": "hello", "archived": false },
+    { "id": 45, "coursekey": "heimetestataan2", "html_id": "maa4", "startdate": "2019-02-21", "enddate": "2019-02-24", "name": "hjerlöfk", "archived": false },
+    { "id": 46, "coursekey": "XD", "html_id": "may1", "startdate": "2019-02-21", "enddate": "2019-02-25", "name": "Testi bäkkärist", "archived": false }
+  ]
+}
