@@ -8,10 +8,6 @@
 6. Testaa lokaalin backendin toimivuus menemällä [tänne](http://localhost:8080/user)
 
 ### Tarjolla olevat urlit:
-- GET `/teachers/id/scoreboards`
-- GET `/user`
-- POST `/courses`
-- POST&GET `/login` 
 
 | Metodi(t) | URL                       |
 | --------| --------------------------- |
