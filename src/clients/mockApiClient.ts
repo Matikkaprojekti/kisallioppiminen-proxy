@@ -8,7 +8,7 @@ export function getUserWithSessionCookie(_: string): Bluebird<UserApiResponse> {
   return Bluebird.resolve(user as UserApiResponse)
 }
 
-export function getAllScoreboards(_: string): Bluebird<ApiCourseObject[]> {
+export function getAllScoreboards(_: string, __: number): Bluebird<ApiCourseObject[]> {
   return Bluebird.resolve(allScoreboards as ApiCourseObject[])
 }
 
