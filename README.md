@@ -6,3 +6,16 @@
 2. Mene [tänne](https://pure-inlet-98383.herokuapp.com/) ja ja avaa devtoolsista Application/Cookies
 5. Kopio _name_ ja _value_ kenttien sisällöt ja pastea ne [tänne](http://localhost:8080)
 6. Testaa lokaalin backendin toimivuus menemällä [tänne](http://localhost:8080/user)
+
+### Tarjolla olevat urlit:
+- GET `/teachers/id/scoreboards`
+- GET `/user`
+- POST `/courses`
+- POST&GET `/login` 
+
+| Metodi(t) | URL                       |
+| --------| --------------------------- |
+| GET     | `/teachers/id/scoreboards`  |
+| GET     | `/user`                     |
+| POST    | `/courses`                  |
+| POST&GET| `/login`                    |
