@@ -18,7 +18,7 @@ export function getUserWithSessionCookie(userSessionCookie: string): Bluebird<Us
     .then(res => res as UserApiResponse)
     .catch(e => {
       console.error(e)
-      return { has_sign_in: null }
+      return null
     })
 }
 

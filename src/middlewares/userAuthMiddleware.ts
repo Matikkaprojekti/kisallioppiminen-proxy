@@ -4,9 +4,7 @@ import { Request, Response, NextFunction } from 'express'
 export interface UserRequest extends Request {
   user: {
     id: number
-    first_name: string
-    teacher: boolean
-    student: boolean
+    name: string
   }
 }
 

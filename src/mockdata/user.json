@@ -1,8 +1,4 @@
 {
-  "has_sign_in": {
-    "id": 53,
-    "first_name": "Jorma",
-    "teacher": false,
-    "student": false
-  }
+  "id": 420,
+  "name": "Jorma"
 }
