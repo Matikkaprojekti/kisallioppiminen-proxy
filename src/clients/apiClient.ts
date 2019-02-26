@@ -1,4 +1,4 @@
-import * as OldApiClient from './oldApiClient'
+import * as OldApiClient from './newApiClient'
 import * as MockApiClient from './mockApiClient'
 
 const selectedClient = process.env.NODE_ENV === 'test' ? MockApiClient : OldApiClient

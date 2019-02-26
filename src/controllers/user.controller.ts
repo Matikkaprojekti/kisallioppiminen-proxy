@@ -1,12 +1,13 @@
 import { Router, Request, Response } from 'express'
-import { getUser } from '../services/userService'
+import { fetchUser, UserRequest } from '../middlewares/userAuthMiddleware'
 
 const router: Router = Router()
 
-router.get('/', (req: Request, res: Response) => {
-  getUser(req.cookies._kisallioppiminen_server_session)
-    .then(user => res.json(user))
-    .catch(e => res.status(401).json(e))
+/**
+ * Gets authorized user
+ */
+router.get('/me', fetchUser, (req: UserRequest, res: Response) => {
+  res.json(req.user)
 })
 
 export const UserController: Router = router
