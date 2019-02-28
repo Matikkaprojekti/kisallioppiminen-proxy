@@ -1,4 +1,4 @@
 export * from './login.controller'
 export * from './user.controller'
 export * from './scoreboard.controller'
-export * from  './course.controller'
+export * from './course.controller'

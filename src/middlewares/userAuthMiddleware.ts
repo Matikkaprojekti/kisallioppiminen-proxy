@@ -4,14 +4,12 @@ import { Request, Response, NextFunction } from 'express'
 export interface UserRequest extends Request {
   user: {
     id: number
-    first_name: string
-    teacher: boolean
-    student: boolean
+    name: string
   }
 }
 
 export function fetchUser(req: UserRequest, res: Response, next: NextFunction) {
-  if (!req.cookies._kisallioppiminen_server_session) {
+  if (!req.cookies._kisallioppiminen_server_session && process.env.NODE_ENV !== 'test') {
     return res.status(401).json({ error: 'Unauthorized' })
   }
 

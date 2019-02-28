@@ -1,5 +1,7 @@
 # kisallioppiminen-backend
 
+Palvelin joka välittää pyyntöjä mockidataan tai oikealle back-endille riippuen ympäristöstä.
+
 ### Ohjeet backendin lokaaliin devauskäyttöön:
 1. `git clone git@github.com:Matikkaprojekti/kisallioppiminen-backend.git && cd kisallioppiminen-backend/ && npm install && npm run watch`
 2. Mene [tänne](https://ohtukisalli.github.io/) ja kirjaudu sisään.
@@ -9,9 +11,6 @@
 
 ### Tarjolla olevat urlit:
 
-| Metodi(t) | URL                       |
-| --------| --------------------------- |
-| GET     | `/teachers/id/scoreboards`  |
-| GET     | `/user`                     |
-| POST    | `/courses`                  |
-| POST&GET| `/login`                    |
+| Metodi(t) | URL                       | Palauttaa:|
+| --------| --------------------------- | -------------- | 
+| GET     | `/users/me`                 |  autentikoidun käyttäjän. 401 jos ei autentikoitu. |
