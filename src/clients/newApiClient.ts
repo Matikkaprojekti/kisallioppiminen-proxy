@@ -1,8 +1,9 @@
 import request from 'request-promise'
 import Bluebird from 'bluebird'
 import { UserApiResponse, ApiNewCoursePostObject, ApiCourseObject } from '../types/apiTypes'
+import { resolveEnvVar } from '../utils/resolveEnvironmentVariable'
 
-const ENTRYPOINT = process.env.NODE_ENV === 'staging' ? process.env.STAGING_BACKEND_ENTRYPOINT : process.env.PROD_BACKEND_ENTRYPOINT
+const ENTRYPOINT = resolveEnvVar('BACKEND_ENTRYPOINT')
 
 const resolveUrl = (endpoint: string) => ENTRYPOINT + endpoint
 
