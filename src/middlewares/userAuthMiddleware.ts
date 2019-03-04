@@ -9,11 +9,11 @@ export interface UserRequest extends Request {
 }
 
 export function fetchUser(req: UserRequest, res: Response, next: NextFunction) {
-  if (!req.cookies._kisallioppiminen_server_session && process.env.NODE_ENV !== 'test') {
+  if (!req.cookies['connect.sid'] && process.env.NODE_ENV !== 'test') {
     return res.status(401).json({ error: 'Unauthorized' })
   }
 
-  const cookie = req.cookies._kisallioppiminen_server_session
+  const cookie = req.cookies['connect.sid']
   getUser(cookie)
     .then(user => {
       req.user = user

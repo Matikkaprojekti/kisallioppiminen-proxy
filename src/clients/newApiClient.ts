@@ -9,11 +9,11 @@ const resolveUrl = (endpoint: string) => ENTRYPOINT + endpoint
 export function getUserWithSessionCookie(userSessionCookie: string): Bluebird<UserApiResponse> {
   const opts: request.RequestPromiseOptions = {
     headers: {
-      Cookie: `_kisallioppiminen_server_session=${userSessionCookie}`
+      Cookie: `connect.sid=${userSessionCookie}`
     }
   }
   return request
-    .get(resolveUrl('/user/get_session_user'), opts)
+    .get(resolveUrl('/users/me'), opts)
     .then(JSON.parse)
     .then(res => res as UserApiResponse)
     .catch(e => {
