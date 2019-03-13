@@ -8,6 +8,7 @@ export interface ApiCourseObject {
   coursekey: string
   html_id: string
   teacher: boolean
+  version: string
   startdate: string
   enddate: string
   name: string

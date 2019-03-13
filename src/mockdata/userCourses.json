@@ -6,6 +6,7 @@
       "id": 2,
       "html_id": "may1",
       "teacher": false,
+      "version": "eka versio",
       "startdate": "2017-03-14",
       "enddate": "2017-05-02",
       "students": [
@@ -34,6 +35,7 @@
       "id": 3,
       "html_id": "may2",
       "teacher": false,
+      "version": "mäntsälän lukio",
       "startdate": "2017-03-14",
       "enddate": "2017-05-02",
       "students": [
