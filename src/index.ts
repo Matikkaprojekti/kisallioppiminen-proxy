@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 import express from 'express'
 import bodyParser from 'body-parser'
-import { LoginController, UserController, ScoreboardController, CourseController } from './controllers'
+import { SessionController, UserController, ScoreboardController, CourseController } from './controllers'
 import cp from 'cookie-parser'
 import cors from 'cors'
 import { resolveEnvVar } from './utils/resolveEnvironmentVariable'
@@ -18,7 +18,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cp())
 
-app.use('/login', LoginController)
+app.use('/session', SessionController)
 app.use('/users', UserController)
 app.use('/', ScoreboardController)
 app.use('/courses', CourseController)
