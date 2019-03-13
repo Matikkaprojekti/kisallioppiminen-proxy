@@ -7,6 +7,10 @@ const ENTRYPOINT = resolveEnvVar('BACKEND_ENTRYPOINT')
 
 const resolveUrl = (endpoint: string) => ENTRYPOINT + endpoint
 
+export function getUserCourses(userSessionCookie: string): Bluebird<ApiCourseObject[]> {
+  return Bluebird.resolve([])
+}
+
 export function getUserWithSessionCookie(userSessionCookie: string): Bluebird<UserApiResponse> {
   const opts: request.RequestPromiseOptions = {
     headers: {

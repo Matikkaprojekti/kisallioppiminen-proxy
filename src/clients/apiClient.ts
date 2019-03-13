@@ -6,5 +6,6 @@ const selectedClient = process.env.NODE_ENV === 'test' ? MockApiClient : OldApiC
 export const client: typeof OldApiClient & typeof MockApiClient = {
   getUserWithSessionCookie: selectedClient.getUserWithSessionCookie,
   getAllScoreboards: selectedClient.getAllScoreboards,
-  createCourseInstance: selectedClient.createCourseInstance
+  createCourseInstance: selectedClient.createCourseInstance,
+  getUserCourses: selectedClient.getUserCourses
 }
