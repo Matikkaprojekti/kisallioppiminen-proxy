@@ -4,7 +4,7 @@ import { createCourse } from '../services/courseService'
 const router: Router = Router()
 
 router.post('/', (req: Request, res: Response) => {
-  const {body} = req
+  const { body } = req
   console.log(req.body)
   createCourse(req.cookies._kisallioppiminen_server_session, body)
     .then(() => res.status(200).send(''))
@@ -13,5 +13,7 @@ router.post('/', (req: Request, res: Response) => {
       res.status(e.statusCode || 500).json(e.body)
     })
 })
+
+// router.put('/:id', (req: Request, res: Response) => {})
 
 export const CourseController: Router = router

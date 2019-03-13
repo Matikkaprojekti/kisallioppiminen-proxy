@@ -2,6 +2,7 @@ import { UserApiResponse, ApiCourseObject, ApiNewCoursePostObject } from '../typ
 import user from '../mockdata/user.json'
 import Bluebird from 'bluebird'
 import allScoreboards from '../mockdata/allScoreboards.json'
+import userCourses from '../mockdata/userCourses.json'
 import courses from '../mockdata/courses.json'
 
 export function getUserWithSessionCookie(_: string): Bluebird<UserApiResponse> {
@@ -10,6 +11,10 @@ export function getUserWithSessionCookie(_: string): Bluebird<UserApiResponse> {
 
 export function getAllScoreboards(_: string, __: number): Bluebird<ApiCourseObject[]> {
   return Bluebird.resolve(allScoreboards as ApiCourseObject[])
+}
+
+export function getUserCourses(_: string): Bluebird<ApiCourseObject[]> {
+  return Bluebird.resolve(userCourses['420'] as ApiCourseObject[])
 }
 
 export function createCourseInstance(_: string, course: ApiNewCoursePostObject) {
