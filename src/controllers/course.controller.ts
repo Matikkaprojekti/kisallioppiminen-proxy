@@ -3,7 +3,8 @@ import { createCourse } from '../services/courseService'
 
 const router: Router = Router()
 
-router.post('/', (req: Request, res: Response) => {
+// ./courses/
+router.post('/kuuba', (req: Request, res: Response) => {
   const { body } = req
   console.log(req.body)
   createCourse(req.cookies._kisallioppiminen_server_session, body)
