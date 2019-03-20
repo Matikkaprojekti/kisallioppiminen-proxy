@@ -7,14 +7,14 @@ const ENTRYPOINT = resolveEnvVar('BACKEND_ENTRYPOINT')
 
 const resolveUrl = (endpoint: string) => ENTRYPOINT + endpoint
 
-export function getUserCourses(userSessionCookie: string): Bluebird<ApiCourseObject[]> {
+export function getUserCourses(token: string): Bluebird<ApiCourseObject[]> {
   return Bluebird.resolve([])
 }
 
-export function getUserWithSessionCookie(userSessionCookie: string): Bluebird<UserApiResponse> {
+export function getUserWithSessionCookie(token: string): Bluebird<UserApiResponse> {
   const opts: request.RequestPromiseOptions = {
     headers: {
-      Cookie: `connect.sid=${userSessionCookie}`
+      Authorization: token
     }
   }
   return request
@@ -27,10 +27,10 @@ export function getUserWithSessionCookie(userSessionCookie: string): Bluebird<Us
     })
 }
 
-export function getAllScoreboards(userSessionCookie: string, teacherId: number): Bluebird<ApiCourseObject[]> {
+export function getAllScoreboards(token: string, teacherId: number): Bluebird<ApiCourseObject[]> {
   const opts: request.RequestPromiseOptions = {
     headers: {
-      Cookie: `_kisallioppiminen_server_session=${userSessionCookie}`
+      Authorization: token
     }
   }
   return request
@@ -43,10 +43,10 @@ export function getAllScoreboards(userSessionCookie: string, teacherId: number):
     })
 }
 
-export function createCourseInstance(userSessionCookie: string, course: ApiNewCoursePostObject): Bluebird<any> {
+export function createCourseInstance(token: string, course: ApiNewCoursePostObject): Bluebird<any> {
   const opts: request.RequestPromiseOptions = {
     headers: {
-      Cookie: `_kisallioppiminen_server_session=${userSessionCookie}`
+      Authorization: token
     },
     json: course
   }

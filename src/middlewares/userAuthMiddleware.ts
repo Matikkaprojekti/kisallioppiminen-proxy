@@ -9,12 +9,12 @@ export interface UserRequest extends Request {
 }
 
 export function fetchUser(req: UserRequest, res: Response, next: NextFunction) {
-  if (!req.cookies['connect.sid'] && process.env.NODE_ENV !== 'test') {
+  if (!req.get('Authorization') && process.env.NODE_ENV !== 'test') {
     return res.status(401).json({ error: 'Unauthorized' })
   }
 
-  const cookie = req.cookies['connect.sid']
-  getUser(cookie)
+  const token = req.get('Authorization')
+  getUser(token)
     .then(user => {
       req.user = user
       next()
