@@ -4,8 +4,22 @@ import Bluebird from 'bluebird'
 import allScoreboards from '../mockdata/allScoreboards.json'
 import userCourses from '../mockdata/userCourses.json'
 import courses from '../mockdata/courses.json'
+import teachingInstances from '../mockdata/teachingInstances.json'
+import Teachinginstance from '../models/TeachingInstance'
 
-export function getUserWithSessionCookie(_: string): Bluebird<UserApiResponse> {
+export function findUserById(__: number) {
+  return Bluebird.resolve(user as UserApiResponse)
+}
+
+export function findTeachingInstanceByCourseKey() {
+  return Bluebird.resolve(teachingInstances['1'] as Teachinginstance[])
+}
+
+export function findOrCreateTeachinginstance(newTeachingInstance: Teachinginstance, token: string): Bluebird<Teachinginstance[]> {
+  return Bluebird.resolve(teachingInstances['1'] as Teachinginstance[])
+}
+
+export function getUserWithToken(_: string): Bluebird<UserApiResponse> {
   return Bluebird.resolve(user as UserApiResponse)
 }
 

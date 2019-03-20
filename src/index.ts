@@ -24,6 +24,7 @@ app.use('/session', SessionController)
 app.use('/users', UserController)
 app.use('/', ScoreboardController)
 app.use('/courses', CourseController)
+app.use('/teachinginstances', CourseController)
 
 app.listen(port, () => {
   console.log(`server started at http://localhost:${port}`)

@@ -1,17 +1,39 @@
 import request from 'request-promise'
 import Bluebird from 'bluebird'
-import { UserApiResponse, ApiNewCoursePostObject, ApiCourseObject } from '../types/apiTypes'
+import { UserApiResponse, ApiNewCoursePostObject, ApiCourseObject, ApiTeachingInstanceObject } from '../types/apiTypes'
 import { resolveEnvVar } from '../utils/resolveEnvironmentVariable'
+import Teachinginstance from '../models/TeachingInstance'
 
 const ENTRYPOINT = resolveEnvVar('BACKEND_ENTRYPOINT')
 
 const resolveUrl = (endpoint: string) => ENTRYPOINT + endpoint
 
+export function findUserById(__: number): any {
+  return null
+}
+
+export function findTeachingInstanceByCourseKey(): any {
+  return null
+}
+
+export function findOrCreateTeachinginstance(newTeachingInstance: Teachinginstance, token: string): Bluebird<Teachinginstance[]> {
+  const opts: request.RequestPromiseOptions = {
+    headers: {
+      Authorization: token
+    },
+    json: newTeachingInstance.coursekey
+  }
+  return request
+    .post(resolveUrl('/teachinginstances/join' + newTeachingInstance.coursekey), opts)
+    .then(JSON.parse)
+    .then(res => res)
+}
+
 export function getUserCourses(token: string): Bluebird<ApiCourseObject[]> {
   return Bluebird.resolve([])
 }
 
-export function getUserWithSessionCookie(token: string): Bluebird<UserApiResponse> {
+export function getUserWithToken(token: string): Bluebird<UserApiResponse> {
   const opts: request.RequestPromiseOptions = {
     headers: {
       Authorization: token

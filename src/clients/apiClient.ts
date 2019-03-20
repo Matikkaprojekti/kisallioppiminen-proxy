@@ -1,10 +1,13 @@
-import * as OldApiClient from './newApiClient'
+import * as newApiClient from './newApiClient'
 import * as MockApiClient from './mockApiClient'
 
-const selectedClient = process.env.NODE_ENV === 'test' ? MockApiClient : OldApiClient
+const selectedClient = process.env.NODE_ENV === 'test' ? MockApiClient : newApiClient
 
-export const client: typeof OldApiClient & typeof MockApiClient = {
-  getUserWithSessionCookie: selectedClient.getUserWithSessionCookie,
+export const client: typeof newApiClient & typeof MockApiClient = {
+  findUserById: selectedClient.findUserById,
+  findTeachingInstanceByCourseKey: selectedClient.findTeachingInstanceByCourseKey,
+  findOrCreateTeachinginstance: selectedClient.findOrCreateTeachinginstance,
+  getUserWithToken: selectedClient.getUserWithToken,
   getAllScoreboards: selectedClient.getAllScoreboards,
   createCourseInstance: selectedClient.createCourseInstance,
   getUserCourses: selectedClient.getUserCourses

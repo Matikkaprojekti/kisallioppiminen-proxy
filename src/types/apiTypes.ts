@@ -28,6 +28,16 @@ export interface ApiNewCoursePostObject {
   enddate: string
 }
 
+export interface ApiTeachingInstanceObject {
+  coursekey: string
+  courseinfo: string
+  name: string
+  startdate: Date
+  enddate: Date
+  coursematerial_name: string
+  coursematerial_version: number
+}
+
 export interface Course {
   coursekey: string
   name: string
