@@ -8,7 +8,8 @@ Palvelin joka välittää pyyntöjä mockidataan tai oikealle back-endille riipp
 3. Kopioi .env.example -> .env ja täytä kentät
 4. `npm install`
 5. node_modules/.bin/knex init
-6. `npm run watch`
+6. node_modules/.bin/knex migrate:latest
+7. `npm run watch`
 
 ### Tarjolla olevat urlit:
 
