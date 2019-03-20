@@ -3,11 +3,12 @@
 Palvelin joka välittää pyyntöjä mockidataan tai oikealle back-endille riippuen ympäristöstä.
 
 ### Ohjeet backendin lokaaliin devauskäyttöön:
-1. `git clone git@github.com:Matikkaprojekti/kisallioppiminen-backend.git && cd kisallioppiminen-backend/ && npm install && npm run watch`
-2. Mene [tänne](https://ohtukisalli.github.io/) ja kirjaudu sisään.
-2. Mene [tänne](https://pure-inlet-98383.herokuapp.com/) ja ja avaa devtoolsista Application/Cookies
-5. Kopio _name_ ja _value_ kenttien sisällöt ja pastea ne [tänne](http://localhost:8080)
-6. Testaa lokaalin backendin toimivuus menemällä [tänne](http://localhost:8080/user)
+1. Asenna postgresql ja luo postgresql käyttäjä
+2. `git clone git@github.com:Matikkaprojekti/kisallioppiminen-backend.git && cd kisallioppiminen-backend/`
+3. Kopioi .env.example -> .env ja täytä kentät
+4. `npm install`
+5. node_modules/.bin/knex init
+6. `npm run watch`
 
 ### Tarjolla olevat urlit:
 
