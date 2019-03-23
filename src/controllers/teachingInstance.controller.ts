@@ -33,8 +33,8 @@ router.post('/join/:coursekey', async (req: Request, res: Response) => {
     console.log(teachingInstance)
 
     if (user && teachingInstance) {
-      const updatedTeachingInstance = await userJoinsTeachingInstanceService(user, teachingInstance)
-      await res.send(updatedTeachingInstance)
+      const usersTeachingInstance = await userJoinsTeachingInstanceService(user, teachingInstance)
+      await res.send(usersTeachingInstance)
     } else {
       res.status(400)
       res.send('no user or teachingInstance in database')
