@@ -4,19 +4,19 @@ export interface UserApiResponse {
 }
 
 export interface ApiCourseObject {
+  name: string
   id: number
-  coursekey: string
+  courseKey: string
   html_id: string
   teacher: boolean
   version: string
   startdate: string
   enddate: string
-  name: string
   students: ApiCourseStudent[]
 }
 
 export interface ApiCourseStudent {
-  user: string
+  username: string
   exercises: Array<{ id: string; status: string }>
 }
 

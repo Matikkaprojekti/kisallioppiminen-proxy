@@ -4,10 +4,10 @@ import { userJoinsTeachingInstanceService, findUserByIdService, findOrCreateTeac
 const router: Router = Router()
 
 router.post('/', (req: Request, res: Response) => {
-  const { coursekey, courseinfo, name, startdate, enddate, coursematerial_name, coursematerial_version } = req.body
+  const { courseKey, courseinfo, name, startdate, enddate, coursematerial_name, coursematerial_version } = req.body
 
   // Check that required params are present
-  if (coursekey && coursematerial_name && coursematerial_version && name && startdate && enddate) {
+  if (courseKey && coursematerial_name && coursematerial_version && name && startdate && enddate) {
     const result = findOrCreateTeachingInstanceService(req.body, req.body.token)
     const jsonresult = res.json(result)
     res.json(jsonresult)
@@ -18,22 +18,18 @@ router.post('/', (req: Request, res: Response) => {
 })
 
 router.post('/join/:coursekey', async (req: Request, res: Response) => {
-  const coursekey = req.params.coursekey
-  const { userId, teacher } = req.body
+  console.log(req.body)
+  const { courseKey, userId, teacher } = req.body
 
-  console.log(coursekey, userId, teacher)
+  console.log(courseKey, userId, teacher)
 
-  if (coursekey && userId && teacher !== undefined) {
-    console.log('Required params are present.')
-    console.log('Checking if coursekey and user_id exists...')
-
+  if (courseKey && userId && teacher !== undefined) {
     const user = await findUserByIdService(userId)
-    console.log(user)
-    const teachingInstance = await findTeachingInstanceByCourseKeyService(coursekey)
-    console.log(teachingInstance)
+    const teachingInstance = await findTeachingInstanceByCourseKeyService(courseKey)
 
     if (user && teachingInstance) {
-      const usersTeachingInstance = await userJoinsTeachingInstanceService(user, teachingInstance)
+      const usersTeachingInstance = await userJoinsTeachingInstanceService(user, courseKey)
+      await console.log('usersteachingInsntance = ', usersTeachingInstance)
       await res.send(usersTeachingInstance)
     } else {
       res.status(400)
@@ -42,7 +38,7 @@ router.post('/join/:coursekey', async (req: Request, res: Response) => {
   } else if (!userId) {
     res.status(400)
     res.send('No user_id')
-  } else if (!coursekey) {
+  } else if (!courseKey) {
     res.status(400)
     res.send('No coursekey')
   } else {

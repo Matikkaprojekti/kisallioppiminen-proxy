@@ -4,6 +4,7 @@ import { UserApiResponse, ApiNewCoursePostObject, ApiCourseObject, ApiTeachingIn
 import { resolveEnvVar } from '../utils/resolveEnvironmentVariable'
 import Teachinginstance from '../models/TeachingInstance'
 import User from '../models/User'
+import UsersTeachingInstance from '../models/UsersTeachingInstance'
 
 const ENTRYPOINT = resolveEnvVar('BACKEND_ENTRYPOINT')
 
@@ -14,11 +15,11 @@ export function findUserById(__: number): any {
   return null
 }
 
-export function findTeachingInstanceByCourseKey(): any {
+export function findTeachingInstanceByCourseKey(courseKey: string): any {
   return null
 }
 
-export function userJoinsTeachingInstance(user: User, teachingInstance: Teachinginstance): any {
+export function userJoinsTeachingInstance(user: User, courseKey: string): any {
   return null
 }
 
@@ -27,15 +28,15 @@ export function findOrCreateTeachinginstance(newTeachingInstance: Teachinginstan
     headers: {
       Authorization: token
     },
-    json: newTeachingInstance.coursekey
+    json: newTeachingInstance.courseKey
   }
   return request
-    .post(resolveUrl('/teachinginstances/join' + newTeachingInstance.coursekey), opts)
+    .post(resolveUrl('/teachinginstances/join' + newTeachingInstance.courseKey), opts)
     .then(JSON.parse)
     .then(res => res)
 }
 
-export function getUserCourses(token: string): Bluebird<ApiCourseObject[]> {
+export function getUserCourses(token: string): Bluebird<UsersTeachingInstance[]> {
   return Bluebird.resolve([])
 }
 

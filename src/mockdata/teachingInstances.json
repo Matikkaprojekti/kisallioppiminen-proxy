@@ -1,35 +1,31 @@
-{
-  "1": [
-    {
-      "coursekey": "kuuba",
-      "courseinfo": "castron kesakurssi",
-      "name": "MAA1",
-      "startdate": "10-10-1995",
-      "enddate": "10-11-1996",
-      "coursematerial_name": "matsku",
-      "coursematerial_version": "eka",
-      "students": [
-        {
-          "user_id": 420,
-          "name": "Jorma"
-        },
-        {
-          "user_id": 1337,
-          "name": "Maija"
-        }
-      ]
-    }
-  ],
-  "2": [
-    {
-      "coursekey": "mockkurssi",
-      "courseinfo": "kiva kurssi",
-      "name": "MAA1",
-      "startdate": "10-10-1995",
-      "enddate": "10-11-1996",
-      "coursematerial_name": "matsku",
-      "coursematerial_version": "eka",
-      "students": [{}]
-    }
-  ]
-}
+[
+  {
+    "courseKey": "kuuba",
+    "courseinfo": "castron kesakurssi",
+    "name": "MAA1",
+    "startdate": "10-10-1995",
+    "enddate": "10-11-1996",
+    "coursematerial_name": "matsku",
+    "coursematerial_version": "eka",
+    "students": [
+      {
+        "user_id": 420,
+        "username": "Jorma"
+      },
+      {
+        "user_id": 1337,
+        "username": "Maija"
+      }
+    ]
+  },
+  {
+    "courseKey": "mockkurssi",
+    "courseinfo": "kiva kurssi",
+    "name": "MAA1",
+    "startdate": "10-10-1995",
+    "enddate": "10-11-1996",
+    "coursematerial_name": "matsku",
+    "coursematerial_version": "eka",
+    "students": []
+  }
+]

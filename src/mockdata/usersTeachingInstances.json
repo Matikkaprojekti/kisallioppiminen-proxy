@@ -2,7 +2,7 @@
   "420": [
     {
       "name": "MAY1: Lukujonot ja summat",
-      "coursekey": "matikkaonkivaa",
+      "courseKey": "matikkaonkivaa",
       "id": 2,
       "html_id": "may1",
       "teacher": false,
@@ -11,7 +11,7 @@
       "enddate": "2017-05-02",
       "students": [
         {
-          "user": "Jorma",
+          "username": "Jorma",
           "exercises": [
             {
               "id": "3BA56960-503F-4697-B508-9F4A3EEAC41B",
@@ -31,7 +31,7 @@
     },
     {
       "name": "MAY3: Lukujonot ja summat",
-      "coursekey": "matikkaonkivaa",
+      "courseKey": "matikkaonkivaa",
       "id": 3,
       "html_id": "may2",
       "teacher": false,
@@ -40,7 +40,7 @@
       "enddate": "2017-05-02",
       "students": [
         {
-          "user": "Jorma",
+          "username": "Jorma",
           "exercises": [
             {
               "id": "3BA56960-503F-4697-B508-9F4A3EEAC41B",

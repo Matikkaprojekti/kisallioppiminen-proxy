@@ -1,71 +1,52 @@
-import { UserApiResponse, ApiCourseObject, ApiNewCoursePostObject, ApiTeachingInstanceObject } from '../types/apiTypes'
+import { UserApiResponse, ApiCourseObject, ApiNewCoursePostObject, ApiTeachingInstanceObject, ApiCourseStudent } from '../types/apiTypes'
 import userMock from '../mockdata/user.json'
 import Bluebird from 'bluebird'
 import allScoreboards from '../mockdata/allScoreboards.json'
 import courses from '../mockdata/courses.json'
 import teachingInstanceMock from '../mockdata/teachingInstances.json'
-import usersTeachingInstances from '../mockdata/usersTeachingInstances.json'
+import usersTeachingInstancesMock from '../mockdata/usersTeachingInstances.json'
 import TeachingInstance from '../models/TeachingInstance'
 import User from '../models/User'
 import UsersTeachingInstance from '../models/UsersTeachingInstance'
-import { number, string } from 'joi'
 
-export function userJoinsTeachingInstance(student: User, teachingInstance: TeachingInstance) {
-  teachingInstanceMock['1'].forEach(ti => {
-    if (ti.coursekey === teachingInstance.coursekey) {
-      ti.students.push(student)
+const teachingInstancesMockData = teachingInstanceMock
+const usersTeachingInstancesMockData = usersTeachingInstancesMock
+
+export async function userJoinsTeachingInstance(student: User, courseKey: string) {
+  const ti = teachingInstancesMockData.find(e => e.courseKey === courseKey)
+  if (ti) {
+    const uti = await <UsersTeachingInstance> {
+      name: ti.name,
+      courseKey: ti.courseKey,
+      version: ti.coursematerial_version,
+      startdate: ti.startdate,
+      enddate: ti.enddate,
+      students: [
+        {
+          username: student.username,
+          exercises: [{}]
+        }
+      ]
     }
-  })
-  usersTeachingInstances['420'].forEach(ti => {
-    if (ti.coursekey === teachingInstance.coursekey) {
-      ti.students.push({
-        user: student.name,
-        exercises: [
-          {
-            id: '3BA56960-503F-4697-B508-9F4A3EEAC41B',
-            status: 'green'
-          },
-          {
-            id: 'CA5CC927-2800-427C-AD31-4FD0DD06C068',
-            status: 'yellow'
-          },
-          {
-            id: '12a9f39a-3b49-11e9-a38a-09f848b19644',
-            status: 'red'
-          }
-        ]
-    })
+    usersTeachingInstancesMockData['420'].push(uti)
+    return await Bluebird.resolve(uti as UsersTeachingInstance)
   }
-
-  })
-
-  const foo = <UsersTeachingInstance> {
-    name: teachingInstance.name,
-    coursekey: teachingInstance.coursekey,
-    id: '1',
-    version: teachingInstance.coursematerial_version,
-    startdate: teachingInstance.startdate,
-    enddate: teachingInstance.enddate,
-    students: teachingInstance.students,
-    exerciseNumbers: []
-  }
-
-  return Bluebird.resolve(foo as UsersTeachingInstance)
+  return null
 }
 
 export function findUserById(__: number) {
-  console.log('kutsuttu 2')
   const student = userMock.id === __ ? userMock : null
   console.log(student)
   return Bluebird.resolve(student as UserApiResponse)
 }
 
-export function findTeachingInstanceByCourseKey() {
-  return Bluebird.resolve(teachingInstanceMock['1'] as TeachingInstance[])
+export function findTeachingInstanceByCourseKey(courseKey: string): Bluebird<TeachingInstance> {
+  const ti = teachingInstanceMock.find(e => e.courseKey === courseKey)
+  return Bluebird.resolve(ti as TeachingInstance)
 }
 
 export function findOrCreateTeachinginstance(newTeachingInstance: TeachingInstance, token: string) {
-  return Bluebird.resolve(teachingInstanceMock['1'] as TeachingInstance[])
+  return Bluebird.resolve(teachingInstanceMock as TeachingInstance[])
 }
 
 export function getUserWithToken(_: string): Bluebird<UserApiResponse> {
@@ -73,11 +54,12 @@ export function getUserWithToken(_: string): Bluebird<UserApiResponse> {
 }
 
 export function getAllScoreboards(_: string, __: number): Bluebird<ApiCourseObject[]> {
-  return Bluebird.resolve(allScoreboards as ApiCourseObject[])
+  // return Bluebird.resolve(allScoreboards as ApiCourseObject[])
+  return null
 }
 
-export function getUserCourses(_: string): Bluebird<ApiCourseObject[]> {
-  return Bluebird.resolve(usersTeachingInstances['420'] as ApiCourseObject[])
+export function getUserCourses(_: string): Bluebird<UsersTeachingInstance[]> {
+  return Bluebird.resolve(usersTeachingInstancesMockData['420'] as UsersTeachingInstance[])
 }
 
 export function createCourseInstance(_: string, course: ApiNewCoursePostObject) {
