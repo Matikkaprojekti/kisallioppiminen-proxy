@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 import express from 'express'
 import bodyParser from 'body-parser'
-import { SessionController, UserController, ScoreboardController, CourseController } from './controllers'
+import { SessionController, UserController, ScoreboardController, CourseController, TeachingInstanceController } from './controllers'
 import cp from 'cookie-parser'
 import cors from 'cors'
 import { resolveEnvVar } from './utils/resolveEnvironmentVariable'
@@ -24,7 +24,7 @@ app.use('/session', SessionController)
 app.use('/users', UserController)
 app.use('/', ScoreboardController)
 app.use('/courses', CourseController)
-app.use('/teachinginstances', CourseController)
+app.use('/teachinginstances', TeachingInstanceController)
 
 app.listen(port, () => {
   console.log(`server started at http://localhost:${port}`)

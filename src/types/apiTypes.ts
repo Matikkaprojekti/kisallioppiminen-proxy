@@ -32,10 +32,11 @@ export interface ApiTeachingInstanceObject {
   coursekey: string
   courseinfo: string
   name: string
-  startdate: Date
-  enddate: Date
+  startdate: string
+  enddate: string
   coursematerial_name: string
   coursematerial_version: number
+  students: ApiCourseStudent[]
 }
 
 export interface Course {

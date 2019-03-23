@@ -1,16 +1,23 @@
 import { client } from '../clients/apiClient'
 import Teachinginstance from '../models/TeachingInstance'
+import User from '../models/User'
+import { ApiTeachingInstanceObject } from '../types/apiTypes'
 
-const { findOrCreateTeachinginstance, findUserById, findTeachingInstanceByCourseKey } = client
+const { userJoinsTeachingInstance, findOrCreateTeachinginstance, findUserById, findTeachingInstanceByCourseKey } = client
 
-export function findOrCreateTeachinginstancePlaah(nt: Teachinginstance, token: string): any {
+export function userJoinsTeachingInstanceService(user: User, teachingInstance: Teachinginstance): any {
+  return userJoinsTeachingInstance(user, teachingInstance)
+}
+
+export function findOrCreateTeachingInstanceService(nt: Teachinginstance, token: string) {
   return findOrCreateTeachinginstance(nt, token)
 }
 
-export function findUserByIdPlaah(userId: number): any {
-  return findUserById(1)
+export function findUserByIdService(userId: number): User {
+  console.log('kutsuttu')
+  return findUserById(userId)
 }
 
-export function findTeachingInstanceByCourseKeyPlaah(): any {
+export function findTeachingInstanceByCourseKeyService(key: string): any {
   return findTeachingInstanceByCourseKey()
 }

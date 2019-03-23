@@ -3,12 +3,14 @@ import Bluebird from 'bluebird'
 import { UserApiResponse, ApiNewCoursePostObject, ApiCourseObject, ApiTeachingInstanceObject } from '../types/apiTypes'
 import { resolveEnvVar } from '../utils/resolveEnvironmentVariable'
 import Teachinginstance from '../models/TeachingInstance'
+import User from '../models/User'
 
 const ENTRYPOINT = resolveEnvVar('BACKEND_ENTRYPOINT')
 
 const resolveUrl = (endpoint: string) => ENTRYPOINT + endpoint
 
 export function findUserById(__: number): any {
+  console.log('kutsuttu väärin')
   return null
 }
 
@@ -16,7 +18,11 @@ export function findTeachingInstanceByCourseKey(): any {
   return null
 }
 
-export function findOrCreateTeachinginstance(newTeachingInstance: Teachinginstance, token: string): Bluebird<Teachinginstance[]> {
+export function userJoinsTeachingInstance(user: User, teachingInstance: Teachinginstance): any {
+  return null
+}
+
+export function findOrCreateTeachinginstance(newTeachingInstance: Teachinginstance, token: string) {
   const opts: request.RequestPromiseOptions = {
     headers: {
       Authorization: token

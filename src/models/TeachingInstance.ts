@@ -1,3 +1,4 @@
+import User from './User'
 export default interface Teachinginstance {
   coursekey: string
   courseinfo: string
@@ -6,4 +7,5 @@ export default interface Teachinginstance {
   enddate: string
   coursematerial_name: string
   coursematerial_version: string
+  students: User[]
 }

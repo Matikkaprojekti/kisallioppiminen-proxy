@@ -12,7 +12,8 @@
     "max-line-length": [true, 200],
     "interface-name": false,
     "arrow-parens": false,
-    "indent": [true, "spaces", 2]
+    "indent": [true, "spaces", 2],
+    "no-angle-bracket-type-assertion": false
   },
   "rulesDirectory": []
 }
