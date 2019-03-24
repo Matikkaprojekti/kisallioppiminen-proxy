@@ -11,7 +11,6 @@ const ENTRYPOINT = resolveEnvVar('BACKEND_ENTRYPOINT')
 const resolveUrl = (endpoint: string) => ENTRYPOINT + endpoint
 
 export function findUserById(__: number): any {
-  console.log('kutsuttu väärin')
   return null
 }
 
@@ -80,7 +79,7 @@ export function createCourseInstance(token: string, course: ApiNewCoursePostObje
     json: course
   }
   return request
-    .post(resolveUrl('/courses/newcourse'), opts) // 43 on kovakoodattu ja tulee muuttaa tähän oman tunnuksen id...
+    .post(resolveUrl('/courses/newcourse'), opts) // 43 on kovakoodattu ja tulee muuttaa tähän oman tunnuksen id... -Entä jossei muista omaa id:tä?
     .then(JSON.parse)
     .then(res => res)
 }
