@@ -23,7 +23,7 @@ router.post('/', (req: Request, res: Response) => {
     res.json({ error: 'Bad request' })
   }
 })
-router.patch('/join', fetchUser, (req: UserRequest, res: Response) => {
+router.patch('/', fetchUser, (req: UserRequest, res: Response) => {
   const studentId = req.user.id
   const coursekey = req.body.coursekey
   const user = findUserByIdService(studentId)
