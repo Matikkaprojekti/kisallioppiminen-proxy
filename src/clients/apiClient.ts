@@ -4,6 +4,7 @@ import * as MockApiClient from './mockApiClient'
 const selectedClient = process.env.NODE_ENV === 'test' ? MockApiClient : newApiClient
 
 export const client: typeof newApiClient & typeof MockApiClient = {
+  getTeachingInstancesForUser: selectedClient.getTeachingInstancesForUser,
   userJoinsTeachingInstance: selectedClient.userJoinsTeachingInstance,
   findUserById: selectedClient.findUserById,
   findTeachingInstanceByCourseKey: selectedClient.findTeachingInstanceByCourseKey,

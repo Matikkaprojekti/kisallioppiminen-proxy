@@ -12,12 +12,16 @@ import UsersTeachingInstance from '../models/UsersTeachingInstance'
 const teachingInstancesMockData = teachingInstanceMock
 const usersTeachingInstancesMockData = usersTeachingInstancesMock
 
+export function getTeachingInstancesForUser(token: string): Bluebird<UsersTeachingInstance[]> {
+  const utis = usersTeachingInstancesMockData['420']
+  return Bluebird.resolve(utis as UsersTeachingInstance[])
+}
+
 export function userJoinsTeachingInstance(token: string, student: User, coursekey: string): Bluebird<UsersTeachingInstance> {
   const ti = teachingInstancesMockData.find(e => e.courseKey === coursekey)
   if (ti) {
     const uti = <UsersTeachingInstance> {
       coursekey: ti.name,
-      courseinfo: ti.courseKey,
       coursematerial_name: ti.coursematerial_version,
       version: ti.startdate,
       name: ti.enddate,

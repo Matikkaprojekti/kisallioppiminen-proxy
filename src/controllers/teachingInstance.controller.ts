@@ -3,12 +3,19 @@ import {
   userJoinsTeachingInstanceService,
   findUserByIdService,
   findOrCreateTeachingInstanceService,
-  findTeachingInstanceByCourseKeyService
+  findTeachingInstanceByCourseKeyService,
+  getTeachingInstancesForUserService
 } from '../services/teachingInstanceService'
 import { UserRequest } from '../middlewares/userAuthMiddleware'
 import { fetchUser } from '../middlewares/userAuthMiddleware'
 
 const router: Router = Router()
+
+router.get('/', fetchUser, (req: UserRequest, res: Response) => {
+  const studentId = req.user.id
+  const token = req.get('Authorization')
+  getTeachingInstancesForUserService(token).then(teachingInstances => res.json(teachingInstances))
+})
 
 router.post('/', (req: Request, res: Response) => {
   const { courseKey, courseinfo, name, startdate, enddate, coursematerial_name, coursematerial_version } = req.body

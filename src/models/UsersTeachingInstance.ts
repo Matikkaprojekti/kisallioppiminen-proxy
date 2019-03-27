@@ -1,6 +1,5 @@
 export default interface UsersTeachingInstance {
   coursekey: string
-  courseinfo: string
   coursematerial_name: string
   version: string
   name: string
@@ -11,7 +10,7 @@ export default interface UsersTeachingInstance {
     {
       firstname: string
       lastname: string
-      exercises: Array<{ id: string; status: string }>
+      exercises: Array<{ uuid: string; status: string }>
     }
   ]
 }
