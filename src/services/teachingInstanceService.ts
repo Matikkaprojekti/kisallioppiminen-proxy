@@ -5,8 +5,8 @@ import { ApiTeachingInstanceObject } from '../types/apiTypes'
 
 const { userJoinsTeachingInstance, findOrCreateTeachinginstance, findUserById, findTeachingInstanceByCourseKey } = client
 
-export function userJoinsTeachingInstanceService(user: User, courseKey: string) {
-  return userJoinsTeachingInstance(user, courseKey)
+export function userJoinsTeachingInstanceService(token: string, user: User, courseKey: string) {
+  return userJoinsTeachingInstance(token, user, courseKey)
 }
 
 export function findOrCreateTeachingInstanceService(nt: Teachinginstance, token: string) {

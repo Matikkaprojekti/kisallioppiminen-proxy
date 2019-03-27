@@ -12,8 +12,8 @@ import UsersTeachingInstance from '../models/UsersTeachingInstance'
 const teachingInstancesMockData = teachingInstanceMock
 const usersTeachingInstancesMockData = usersTeachingInstancesMock
 
-export function userJoinsTeachingInstance(student: User, courseKey: string): Bluebird<UsersTeachingInstance> {
-  const ti = teachingInstancesMockData.find(e => e.courseKey === courseKey)
+export function userJoinsTeachingInstance(token: string, student: User, coursekey: string): Bluebird<UsersTeachingInstance> {
+  const ti = teachingInstancesMockData.find(e => e.courseKey === coursekey)
   if (ti) {
     const uti = <UsersTeachingInstance> {
       coursekey: ti.name,

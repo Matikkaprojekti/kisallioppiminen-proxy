@@ -27,10 +27,12 @@ router.patch('/join', fetchUser, (req: UserRequest, res: Response) => {
   const studentId = req.user.id
   const coursekey = req.body.coursekey
   const user = findUserByIdService(studentId)
+  const token = req.get('Authorization')
   console.log('user = ', user)
   console.log('coursekey = ', coursekey)
+  console.log('token = ', token)
   if (user && coursekey) {
-    userJoinsTeachingInstanceService(user, coursekey).then(teachingInstance => res.json(teachingInstance))
+    userJoinsTeachingInstanceService(token, user, coursekey).then(teachingInstance => res.json(teachingInstance))
   } else {
     res.status(400)
     res.json({ error: 'Bad request' })

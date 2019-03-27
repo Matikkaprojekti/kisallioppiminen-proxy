@@ -18,8 +18,17 @@ export function findTeachingInstanceByCourseKey(courseKey: string): any {
   return null
 }
 
-export function userJoinsTeachingInstance(user: User, courseKey: string): Bluebird<UsersTeachingInstance> {
-  return null
+export function userJoinsTeachingInstance(token: string, user: User, coursekey: string): Bluebird<UsersTeachingInstance> {
+  const opts: request.RequestPromiseOptions = {
+    headers: {
+      Authorization: token
+    },
+    json: coursekey
+  }
+  return request
+    .patch(resolveUrl('/teachinginstances/join'), opts)
+    .then(JSON.parse)
+    .then(res => res)
 }
 
 export function findOrCreateTeachinginstance(newTeachingInstance: Teachinginstance, token: string) {
