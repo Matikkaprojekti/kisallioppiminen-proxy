@@ -12,24 +12,28 @@ import UsersTeachingInstance from '../models/UsersTeachingInstance'
 const teachingInstancesMockData = teachingInstanceMock
 const usersTeachingInstancesMockData = usersTeachingInstancesMock
 
-export async function userJoinsTeachingInstance(student: User, courseKey: string) {
+export function userJoinsTeachingInstance(student: User, courseKey: string): Bluebird<UsersTeachingInstance> {
   const ti = teachingInstancesMockData.find(e => e.courseKey === courseKey)
   if (ti) {
-    const uti = await <UsersTeachingInstance> {
-      name: ti.name,
-      courseKey: ti.courseKey,
-      version: ti.coursematerial_version,
+    const uti = <UsersTeachingInstance> {
+      coursekey: ti.name,
+      courseinfo: ti.courseKey,
+      coursematerial_name: ti.coursematerial_version,
+      version: ti.startdate,
+      name: ti.enddate,
       startdate: ti.startdate,
       enddate: ti.enddate,
+      owner_id: 1,
       students: [
         {
-          username: student.username,
-          exercises: [{}]
+          firstname: student.name,
+          lastname: student.name,
+          exercises: []
         }
       ]
     }
     usersTeachingInstancesMockData['420'].push(uti)
-    return await Bluebird.resolve(uti as UsersTeachingInstance)
+    return Bluebird.resolve(uti as UsersTeachingInstance)
   }
   return null
 }

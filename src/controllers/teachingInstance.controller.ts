@@ -1,5 +1,12 @@
 import { Router, Request, Response } from 'express'
-import { userJoinsTeachingInstanceService, findUserByIdService, findOrCreateTeachingInstanceService, findTeachingInstanceByCourseKeyService } from '../services/teachingInstanceService'
+import {
+  userJoinsTeachingInstanceService,
+  findUserByIdService,
+  findOrCreateTeachingInstanceService,
+  findTeachingInstanceByCourseKeyService
+} from '../services/teachingInstanceService'
+import { UserRequest } from '../middlewares/userAuthMiddleware'
+import { fetchUser } from '../middlewares/userAuthMiddleware'
 
 const router: Router = Router()
 
@@ -16,36 +23,18 @@ router.post('/', (req: Request, res: Response) => {
     res.json({ error: 'Bad request' })
   }
 })
-
-router.post('/join/:coursekey', async (req: Request, res: Response) => {
-  console.log(req.body)
-  const { courseKey, userId, teacher } = req.body
-
-  console.log(courseKey, userId, teacher)
-
-  if (courseKey && userId && teacher !== undefined) {
-    const user = await findUserByIdService(userId)
-    const teachingInstance = await findTeachingInstanceByCourseKeyService(courseKey)
-
-    if (user && teachingInstance) {
-      const usersTeachingInstance = await userJoinsTeachingInstanceService(user, courseKey)
-      await console.log('usersteachingInsntance = ', usersTeachingInstance)
-      await res.send(usersTeachingInstance)
-    } else {
-      res.status(400)
-      res.send('no user or teachingInstance in database')
-    }
-  } else if (!userId) {
-    res.status(400)
-    res.send('No user_id')
-  } else if (!courseKey) {
-    res.status(400)
-    res.send('No coursekey')
+router.patch('/join', fetchUser, (req: UserRequest, res: Response) => {
+  const studentId = req.user.id
+  const coursekey = req.body.coursekey
+  const user = findUserByIdService(studentId)
+  console.log('user = ', user)
+  console.log('coursekey = ', coursekey)
+  if (user && coursekey) {
+    userJoinsTeachingInstanceService(user, coursekey).then(teachingInstance => res.json(teachingInstance))
   } else {
     res.status(400)
-    res.send('Very BAD request.')
+    res.json({ error: 'Bad request' })
   }
 })
 
-// export const CourseController: Router = router
 export const TeachingInstanceController: Router = router

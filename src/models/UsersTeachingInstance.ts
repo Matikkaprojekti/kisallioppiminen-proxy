@@ -1,15 +1,16 @@
 export default interface UsersTeachingInstance {
-  name: string
-  courseKey: string
-  id: number,
-  html_id: string
-  teacher: boolean
+  coursekey: string
+  courseinfo: string
+  coursematerial_name: string
   version: string
+  name: string
   startdate: string
   enddate: string
+  owner_id: number
   students: [
     {
-      username: string,
+      firstname: string
+      lastname: string
       exercises: Array<{ id: string; status: string }>
     }
   ]

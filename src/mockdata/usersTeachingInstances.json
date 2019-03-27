@@ -1,60 +1,36 @@
 {
   "420": [
     {
-      "name": "MAY1: Lukujonot ja summat",
-      "courseKey": "matikkaonkivaa",
-      "id": 2,
-      "html_id": "may1",
-      "teacher": false,
-      "version": "eka versio",
-      "startdate": "2017-03-14",
-      "enddate": "2017-05-02",
+      "coursekey": "kissalan lukio",
+      "courseinfo": "Juuh elikkäs joo...",
+      "coursematerial_name": "MAY2",
+      "version": "Kissalan lukio",
+      "name": "Kissalan matikka 2019",
+      "startdate": "2019-12-27T22:00:00.000Z",
+      "enddate": "2030-01-29T22:00:00.000Z",
+      "owner_id": 1,
       "students": [
         {
-          "username": "Jorma",
-          "exercises": [
-            {
-              "id": "3BA56960-503F-4697-B508-9F4A3EEAC41B",
-              "status": "green"
-            },
-            {
-              "id": "CA5CC927-2800-427C-AD31-4FD0DD06C068",
-              "status": "yellow"
-            },
-            {
-              "id": "12a9f39a-3b49-11e9-a38a-09f848b19644",
-              "status": "red"
-            }
-          ]
+          "firstname": "Jorma",
+          "lastname": "Jormakkala",
+          "exercises": []
         }
       ]
     },
     {
-      "name": "MAY3: Lukujonot ja summat",
-      "courseKey": "matikkaonkivaa",
-      "id": 3,
-      "html_id": "may2",
-      "teacher": false,
-      "version": "mäntsälän lukio",
-      "startdate": "2017-03-14",
-      "enddate": "2017-05-02",
+      "coursekey": "Mäntsälän lukio",
+      "courseinfo": "joo eipäs joo",
+      "coursematerial_name": "MAY2",
+      "version": "Mäntsälän lukio kesä2019",
+      "name": "Mäntsälän lukio kesä2019",
+      "startdate": "2019-12-27T22:00:00.000Z",
+      "enddate": "2030-01-29T22:00:00.000Z",
+      "owner_id": 1,
       "students": [
         {
-          "username": "Jorma",
-          "exercises": [
-            {
-              "id": "3BA56960-503F-4697-B508-9F4A3EEAC41B",
-              "status": "green"
-            },
-            {
-              "id": "CA5CC927-2800-427C-AD31-4FD0DD06C068",
-              "status": "yellow"
-            },
-            {
-              "id": "12a9f39a-3b49-11e9-a38a-09f848b19644",
-              "status": "red"
-            }
-          ]
+          "firstname": "Jorma",
+          "lastname": "Jormakkala",
+          "exercises": []
         }
       ]
     }

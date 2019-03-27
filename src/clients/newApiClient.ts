@@ -18,7 +18,7 @@ export function findTeachingInstanceByCourseKey(courseKey: string): any {
   return null
 }
 
-export function userJoinsTeachingInstance(user: User, courseKey: string): any {
+export function userJoinsTeachingInstance(user: User, courseKey: string): Bluebird<UsersTeachingInstance> {
   return null
 }
 
