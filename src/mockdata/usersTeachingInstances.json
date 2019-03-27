@@ -1,36 +1,119 @@
 {
   "420": [
     {
-      "coursekey": "kissala",
-      "courseinfo": "Juuh elikkäs joo...",
-      "coursematerial_name": "MAY2",
-      "version": "Kissalan lukio",
-      "name": "Kissalan matikka 2019",
-      "startdate": "2019-12-27T22:00:00.000Z",
-      "enddate": "2030-01-29T22:00:00.000Z",
-      "owner_id": 1,
+      "coursekey": "matikkaonkivaa",
+      "coursematerial_name": "MAY1 - Luvut ja lukujonot",
+      "version": "1",
+      "name": "Opettaja keksinyt",
+      "startdate": "2017-03-14",
+      "enddate": "2017-05-02",
+      "owner_id": 123,
       "students": [
         {
-          "firstname": "Jorma",
-          "lastname": "Jormakkala",
-          "exercises": []
+          "firstname": "Anthony",
+          "lastname": "Anthony",
+          "exercises": [
+            {
+              "uuid": "12a9f399-3b49-11e9-a38a-09f848b19644",
+              "status": "green"
+            },
+            {
+              "uuid": "12a9f39a-3b49-11e9-a38a-09f848b19644",
+              "status": "yellow"
+            }
+          ]
+        },
+        {
+          "firstname": "Bert",
+          "lastname": "Bert",
+          "exercises": [
+            {
+              "uuid": "12a9f399-3b49-11e9-a38a-09f848b19644",
+              "status": "red"
+            },
+            {
+              "uuid": "12a9f39a-3b49-11e9-a38a-09f848b19644",
+              "status": "red"
+            }
+          ]
         }
       ]
     },
     {
-      "coursekey": "mantsala",
-      "courseinfo": "joo eipäs joo",
-      "coursematerial_name": "MAY2",
-      "version": "Mäntsälän lukio kesä2019",
-      "name": "Mäntsälän lukio kesä2019",
-      "startdate": "2019-12-27T22:00:00.000Z",
-      "enddate": "2030-01-29T22:00:00.000Z",
-      "owner_id": 1,
+      "coursekey": "matikkaonkivaa2",
+      "coursematerial_name": "MAY1 - Luvut ja lukujonot",
+      "version": "1.1",
+      "name": "Opettaja keksinyt",
+      "startdate": "2017-03-14",
+      "enddate": "2017-05-02",
+      "ownerd_id": 123,
       "students": [
         {
-          "firstname": "Jorma",
-          "lastname": "Jormakkala",
-          "exercises": []
+          "firstname": "Anthony",
+          "lastname": "Anthony",
+          "exercises": [
+            {
+              "uuid": "12a9f396-3b49-11e9-a38a-09f848b19644",
+              "status": "green"
+            },
+            {
+              "uuid": "12a9f397-3b49-11e9-a38a-09f848b19644",
+              "status": "yellow"
+            }
+          ]
+        },
+        {
+          "firstname": "Bert",
+          "lastname": "Bert",
+          "exercises": [
+            {
+              "uuid": "12a9f398-3b49-11e9-a38a-09f848b19644",
+              "status": "red"
+            },
+            {
+              "uuid": "12a9f397-3b49-11e9-a38a-09f848b19644",
+              "status": "green"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "coursekey": "jotain",
+      "coursematerial_name": "MAA3 - Geometria",
+      "version": "1",
+      "name": "Opettaja keksinyt",
+      "startdate": "2017-03-14",
+      "enddate": "2017-05-02",
+      "owner_id": 1234,
+      "students": [
+        {
+          "firstname": "Anthony",
+          "lastname": "Anthony",
+          "exercises": [
+            {
+              "uuid": "12a9cc85-3b49-11e9-a38a-09f848b19644",
+              "status": "green"
+            },
+            {
+              "uuid": "12a9cc86-3b49-11e9-a38a-09f848b19644",
+              "status": "yellow"
+            }
+          ]
+        },
+        {
+          "firstname": "Bert",
+          "lastname": "Bert",
+          "exercises": [
+            {
+              "uuid": "12a9cc87-3b49-11e9-a38a-09f848b19644",
+              "status": "red"
+            },
+            {
+              "uuid": "12a9cc85-3b49-11e9-a38a-09f848b19644",
+              "status": "yellow"
+            }
+          ]
         }
       ]
     }

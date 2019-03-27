@@ -10,6 +10,10 @@ const ENTRYPOINT = resolveEnvVar('BACKEND_ENTRYPOINT')
 
 const resolveUrl = (endpoint: string) => ENTRYPOINT + endpoint
 
+export function getTeachingInstancesForUser(token: string): Bluebird<UsersTeachingInstance[]> {
+  return null
+}
+
 export function findUserById(__: number): any {
   return null
 }
