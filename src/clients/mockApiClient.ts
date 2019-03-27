@@ -23,6 +23,11 @@ export function teacherCreatesTeachingInstance(teachingInstance: TeachingInstanc
 >>>>>>> 5761541... could maybe create teaching instance
 }
 
+export function getTeachingInstancesForUser(token: string): Bluebird<UsersTeachingInstance[]> {
+  const utis = usersTeachingInstancesMockData['420']
+  return Bluebird.resolve(utis as UsersTeachingInstance[])
+}
+
 export function userJoinsTeachingInstance(token: string, student: User, coursekey: string): Bluebird<UsersTeachingInstance> {
   const ti = teachingInstancesMockData.find(e => e.coursekey === coursekey)
   if (ti) {
