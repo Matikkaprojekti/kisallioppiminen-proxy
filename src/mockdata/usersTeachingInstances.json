@@ -1,0 +1,38 @@
+{
+  "420": [
+    {
+      "coursekey": "kissala",
+      "courseinfo": "Juuh elikkäs joo...",
+      "coursematerial_name": "MAY2",
+      "version": "Kissalan lukio",
+      "name": "Kissalan matikka 2019",
+      "startdate": "2019-12-27T22:00:00.000Z",
+      "enddate": "2030-01-29T22:00:00.000Z",
+      "owner_id": 1,
+      "students": [
+        {
+          "firstname": "Jorma",
+          "lastname": "Jormakkala",
+          "exercises": []
+        }
+      ]
+    },
+    {
+      "coursekey": "mantsala",
+      "courseinfo": "joo eipäs joo",
+      "coursematerial_name": "MAY2",
+      "version": "Mäntsälän lukio kesä2019",
+      "name": "Mäntsälän lukio kesä2019",
+      "startdate": "2019-12-27T22:00:00.000Z",
+      "enddate": "2030-01-29T22:00:00.000Z",
+      "owner_id": 1,
+      "students": [
+        {
+          "firstname": "Jorma",
+          "lastname": "Jormakkala",
+          "exercises": []
+        }
+      ]
+    }
+  ]
+}

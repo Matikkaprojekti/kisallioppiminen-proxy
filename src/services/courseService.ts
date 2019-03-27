@@ -15,8 +15,8 @@ export function createCourse(sessionCookie: string, course: Course) {
 
 // export function joinCourse(sessionCookie: string, courseKey: string) {}
 
-export function getCoursesForUser(sessionCookie: string) {
-  return getUserCourses(sessionCookie)
+export function getCoursesForUser(token: string) {
+  return getUserCourses(token)
 }
 
 function validateCourse(course: Course): ApiNewCoursePostObject {

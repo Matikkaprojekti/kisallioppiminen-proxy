@@ -1,17 +1,54 @@
 import request from 'request-promise'
 import Bluebird from 'bluebird'
-import { UserApiResponse, ApiNewCoursePostObject, ApiCourseObject } from '../types/apiTypes'
+import { UserApiResponse, ApiNewCoursePostObject, ApiCourseObject, ApiTeachingInstanceObject } from '../types/apiTypes'
 import { resolveEnvVar } from '../utils/resolveEnvironmentVariable'
+import Teachinginstance from '../models/TeachingInstance'
+import User from '../models/User'
+import UsersTeachingInstance from '../models/UsersTeachingInstance'
 
 const ENTRYPOINT = resolveEnvVar('BACKEND_ENTRYPOINT')
 
 const resolveUrl = (endpoint: string) => ENTRYPOINT + endpoint
 
-export function getUserCourses(token: string): Bluebird<ApiCourseObject[]> {
+export function findUserById(__: number): any {
+  return null
+}
+
+export function findTeachingInstanceByCourseKey(courseKey: string): any {
+  return null
+}
+
+export function userJoinsTeachingInstance(token: string, user: User, coursekey: string): Bluebird<UsersTeachingInstance> {
+  const opts: request.RequestPromiseOptions = {
+    headers: {
+      Authorization: token
+    },
+    json: coursekey
+  }
+  return request
+    .patch(resolveUrl('/teachinginstances/join'), opts)
+    .then(JSON.parse)
+    .then(res => res)
+}
+
+export function findOrCreateTeachinginstance(newTeachingInstance: Teachinginstance, token: string) {
+  const opts: request.RequestPromiseOptions = {
+    headers: {
+      Authorization: token
+    },
+    json: newTeachingInstance.courseKey
+  }
+  return request
+    .post(resolveUrl('/teachinginstances/join' + newTeachingInstance.courseKey), opts)
+    .then(JSON.parse)
+    .then(res => res)
+}
+
+export function getUserCourses(token: string): Bluebird<UsersTeachingInstance[]> {
   return Bluebird.resolve([])
 }
 
-export function getUserWithSessionCookie(token: string): Bluebird<UserApiResponse> {
+export function getUserWithToken(token: string): Bluebird<UserApiResponse> {
   const opts: request.RequestPromiseOptions = {
     headers: {
       Authorization: token
@@ -51,7 +88,7 @@ export function createCourseInstance(token: string, course: ApiNewCoursePostObje
     json: course
   }
   return request
-    .post(resolveUrl('/courses/newcourse'), opts) // 43 on kovakoodattu ja tulee muuttaa tähän oman tunnuksen id...
+    .post(resolveUrl('/courses/newcourse'), opts) // 43 on kovakoodattu ja tulee muuttaa tähän oman tunnuksen id... -Entä jossei muista omaa id:tä?
     .then(JSON.parse)
     .then(res => res)
 }
