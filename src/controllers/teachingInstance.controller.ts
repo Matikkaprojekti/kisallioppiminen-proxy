@@ -18,22 +18,36 @@ router.get('/', fetchUser, (req: UserRequest, res: Response) => {
   getTeachingInstancesForUserService(token).then(teachingInstances => res.json(teachingInstances))
 })
 
-router.post('/', (req: Request, res: Response) => {
-  const { courseKey, courseinfo, name, startdate, enddate, coursematerial_name, coursematerial_version } = req.body
+router.post('/', fetchUser, (req: UserRequest, res: Response) => {
+  console.log('se on tää')
+  const { coursekey, courseinfo, name, startdate, enddate, coursematerial_name, coursematerial_version } = req.body
+  console.log(req.body)
 
   const token = req.get('Authorization')
+  console.log('token = ', token)
+  console.log('coursekey = ', coursekey)
+  console.log('coursematerial_name = ', coursematerial_name)
+  console.log('coursematerial_version = ', coursematerial_version)
+  console.log('name = ', name)
+  console.log('startdate = ', startdate)
+  console.log('enddate = ', enddate)
+  const ownerId = req.user.id
+  console.log('ownerId = ', ownerId)
+
   const teachingInstance = {
-    coursekey: req.body.coursekey,
-    name: req.body.name,
-    startdate: req.body.startdate,
-    enddate: req.body.enddate,
-    coursematerial_name: req.body.coursematerial_name,
-    coursematerial_version: req.body.coursematerial_version,
-    owner_id: req.body.user.id
+    coursekey,
+    name,
+    startdate,
+    enddate,
+    coursematerial_name,
+    coursematerial_version,
+    owner_id: ownerId
   }
+  console.log(teachingInstance)
 
   // Check that required params are present
-  if (courseKey && coursematerial_name && coursematerial_version && name && startdate && enddate) {
+  if (coursekey && coursematerial_name && coursematerial_version && name && startdate && enddate) {
+    console.log('eka')
     const result = teacherCreatesTeachingInstanceService(teachingInstance, token)
     const jsonresult = res.json(result)
     res.json(jsonresult)

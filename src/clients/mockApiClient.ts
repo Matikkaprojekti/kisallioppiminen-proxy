@@ -18,6 +18,7 @@ export function getTeachingInstancesForUser(token: string): Bluebird<UsersTeachi
   return Bluebird.resolve(utis as UsersTeachingInstance[])
 =======
 export function teacherCreatesTeachingInstance(teachingInstance: TeachingInstance, token: string): Bluebird<TeachingInstance> {
+  console.log('opettaja luo opetusinstanssin')
   teachingInstancesMockData.push(teachingInstance)
   return Bluebird.resolve(teachingInstancesMockData[teachingInstancesMockData.length - 1] as TeachingInstance)
 >>>>>>> 5761541... could maybe create teaching instance
@@ -28,7 +29,7 @@ export function getTeachingInstancesForUser(token: string): Bluebird<UsersTeachi
   return Bluebird.resolve(utis as UsersTeachingInstance[])
 }
 
-export function userJoinsTeachingInstance(token: string, student: User, coursekey: string): Bluebird<UsersTeachingInstance> {
+export function userJoinsTeachingInstance(token: string, user: User, coursekey: string): Bluebird<UsersTeachingInstance> {
   const ti = teachingInstancesMockData.find(e => e.coursekey === coursekey)
   if (ti) {
     const uti = <UsersTeachingInstance> {
@@ -45,8 +46,8 @@ export function userJoinsTeachingInstance(token: string, student: User, courseke
       owner_id: 1,
       students: [
         {
-          firstname: student.name,
-          lastname: student.name,
+          firstname: user.name,
+          lastname: user.name,
           exercises: []
         }
       ]

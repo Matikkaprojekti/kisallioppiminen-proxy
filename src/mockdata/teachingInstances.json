@@ -1,10 +1,6 @@
 [
   {
-<<<<<<< HEAD
     "coursekey": "kuuba",
-=======
-    "courseKey": "kuuba",
->>>>>>> 24806c146272ba2ff9bc14417830fbd03c29dce6
     "name": "MAA1",
     "startdate": "10-10-1995",
     "enddate": "10-11-1996",
@@ -13,13 +9,9 @@
     "owner_id": 3
   },
   {
-<<<<<<< HEAD
     "coursekey": "mockkurssi",
     "coursematerial_name": "matsku",
     "coursematerial_version": "eka",
-=======
-    "courseKey": "mockkurssi",
->>>>>>> 24806c146272ba2ff9bc14417830fbd03c29dce6
     "name": "MAB3",
     "startdate": "10-10-1995",
     "enddate": "10-11-1996",
