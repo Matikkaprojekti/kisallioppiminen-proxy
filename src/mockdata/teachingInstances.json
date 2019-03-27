@@ -1,29 +1,20 @@
 [
   {
-    "courseKey": "kuuba",
+    "coursekey": "kuuba",
     "name": "MAA1",
     "startdate": "10-10-1995",
     "enddate": "10-11-1996",
     "coursematerial_name": "matsku",
     "coursematerial_version": "eka",
-    "students": [
-      {
-        "user_id": 420,
-        "username": "Jorma"
-      },
-      {
-        "user_id": 1337,
-        "username": "Maija"
-      }
-    ]
+    "owner_id": 3
   },
   {
-    "courseKey": "mockkurssi",
+    "coursekey": "mockkurssi",
+    "coursematerial_name": "matsku",
+    "coursematerial_version": "eka",
     "name": "MAB3",
     "startdate": "10-10-1995",
     "enddate": "10-11-1996",
-    "coursematerial_name": "matsku",
-    "coursematerial_version": "eka",
-    "students": []
+    "owner_id": 3
   }
 ]

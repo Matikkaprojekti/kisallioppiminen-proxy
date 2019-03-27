@@ -22,6 +22,19 @@ export function findTeachingInstanceByCourseKey(courseKey: string): any {
   return null
 }
 
+export function teacherCreatesTeachingInstance(teachingInstance: Teachinginstance, token: string): Bluebird<Teachinginstance> {
+  const opts: request.RequestPromiseOptions = {
+    headers: {
+      Authorization: token
+    },
+    json: teachingInstance
+  }
+  return request
+    .post(resolveUrl('/teachinginstances'), opts)
+    .then(JSON.parse)
+    .then(res => res)
+}
+
 export function userJoinsTeachingInstance(token: string, user: User, coursekey: string): Bluebird<UsersTeachingInstance> {
   const opts: request.RequestPromiseOptions = {
     headers: {
@@ -30,7 +43,7 @@ export function userJoinsTeachingInstance(token: string, user: User, coursekey: 
     json: coursekey
   }
   return request
-    .patch(resolveUrl('/teachinginstances/join'), opts)
+    .patch(resolveUrl('/teachinginstances'), opts)
     .then(JSON.parse)
     .then(res => res)
 }
@@ -40,10 +53,10 @@ export function findOrCreateTeachinginstance(newTeachingInstance: Teachinginstan
     headers: {
       Authorization: token
     },
-    json: newTeachingInstance.courseKey
+    json: newTeachingInstance.coursekey
   }
   return request
-    .post(resolveUrl('/teachinginstances/join' + newTeachingInstance.courseKey), opts)
+    .post(resolveUrl('/teachinginstances/join' + newTeachingInstance.coursekey), opts)
     .then(JSON.parse)
     .then(res => res)
 }

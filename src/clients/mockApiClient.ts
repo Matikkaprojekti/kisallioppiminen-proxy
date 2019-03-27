@@ -12,16 +12,26 @@ import UsersTeachingInstance from '../models/UsersTeachingInstance'
 const teachingInstancesMockData = teachingInstanceMock
 const usersTeachingInstancesMockData = usersTeachingInstancesMock
 
+<<<<<<< HEAD
 export function getTeachingInstancesForUser(token: string): Bluebird<UsersTeachingInstance[]> {
   const utis = usersTeachingInstancesMockData['420']
   return Bluebird.resolve(utis as UsersTeachingInstance[])
+=======
+export function teacherCreatesTeachingInstance(teachingInstance: TeachingInstance, token: string): Bluebird<TeachingInstance> {
+  teachingInstancesMockData.push(teachingInstance)
+  return Bluebird.resolve(teachingInstancesMockData[teachingInstancesMockData.length - 1] as TeachingInstance)
+>>>>>>> 5761541... could maybe create teaching instance
 }
 
 export function userJoinsTeachingInstance(token: string, student: User, coursekey: string): Bluebird<UsersTeachingInstance> {
-  const ti = teachingInstancesMockData.find(e => e.courseKey === coursekey)
+  const ti = teachingInstancesMockData.find(e => e.coursekey === coursekey)
   if (ti) {
     const uti = <UsersTeachingInstance> {
       coursekey: ti.name,
+<<<<<<< HEAD
+=======
+      courseinfo: ti.coursekey,
+>>>>>>> 5761541... could maybe create teaching instance
       coursematerial_name: ti.coursematerial_version,
       version: ti.startdate,
       name: ti.enddate,
@@ -49,7 +59,7 @@ export function findUserById(__: number) {
 }
 
 export function findTeachingInstanceByCourseKey(courseKey: string): Bluebird<TeachingInstance> {
-  const ti = teachingInstanceMock.find(e => e.courseKey === courseKey)
+  const ti = teachingInstanceMock.find(e => e.coursekey === courseKey)
   return Bluebird.resolve(ti as TeachingInstance)
 }
 
