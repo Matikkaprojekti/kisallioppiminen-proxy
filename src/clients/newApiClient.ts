@@ -56,7 +56,7 @@ export function findOrCreateTeachinginstance(newTeachingInstance: Teachinginstan
     json: newTeachingInstance.coursekey
   }
   return request
-    .post(resolveUrl('/teachinginstances/join' + newTeachingInstance.coursekey), opts)
+    .post(resolveUrl('/teachinginstances'), opts)
     .then(JSON.parse)
     .then(res => res)
 }
