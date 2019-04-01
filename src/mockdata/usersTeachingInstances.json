@@ -1,10 +1,10 @@
 {
   "420": [
     {
-      "coursekey": "matikkaonkivaa",
+      "coursekey": "kuuba",
       "coursematerial_name": "MAY1 - Luvut ja lukujonot",
       "version": "1",
-      "name": "Opettaja keksinyt",
+      "name": "Castron kesäkurssi",
       "startdate": "2017-03-14",
       "enddate": "2017-05-02",
       "owner_id": 123,
@@ -82,7 +82,7 @@
       "coursekey": "jotain",
       "coursematerial_name": "MAA3 - Geometria",
       "version": "1",
-      "name": "Opettaja keksinyt",
+      "name": "Opettaja ei keksinyt",
       "startdate": "2017-03-14",
       "enddate": "2017-05-02",
       "owner_id": 1234,

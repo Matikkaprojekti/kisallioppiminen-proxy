@@ -5,13 +5,13 @@
     "startdate": "10-10-1995",
     "enddate": "10-11-1996",
     "coursematerial_name": "matsku",
-    "coursematerial_version": "eka",
+    "version": "eka",
     "owner_id": 3
   },
   {
     "coursekey": "mockkurssi",
     "coursematerial_name": "matsku",
-    "coursematerial_version": "eka",
+    "version": "eka",
     "name": "MAB3",
     "startdate": "10-10-1995",
     "enddate": "10-11-1996",

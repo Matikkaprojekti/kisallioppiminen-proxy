@@ -20,14 +20,14 @@ router.get('/', fetchUser, (req: UserRequest, res: Response) => {
 
 router.post('/', fetchUser, (req: UserRequest, res: Response) => {
   console.log('se on tää')
-  const { coursekey, courseinfo, name, startdate, enddate, coursematerial_name, coursematerial_version } = req.body
+  const { coursekey, courseinfo, name, startdate, enddate, coursematerial_name, version } = req.body
   console.log(req.body)
 
   const token = req.get('Authorization')
   console.log('token = ', token)
   console.log('coursekey = ', coursekey)
   console.log('coursematerial_name = ', coursematerial_name)
-  console.log('coursematerial_version = ', coursematerial_version)
+  console.log('coursematerial_version = ', version)
   console.log('name = ', name)
   console.log('startdate = ', startdate)
   console.log('enddate = ', enddate)
@@ -40,13 +40,13 @@ router.post('/', fetchUser, (req: UserRequest, res: Response) => {
     startdate,
     enddate,
     coursematerial_name,
-    coursematerial_version,
+    version,
     owner_id: ownerId
   }
   console.log(teachingInstance)
 
   // Check that required params are present
-  if (coursekey && coursematerial_name && coursematerial_version && name && startdate && enddate) {
+  if (coursekey && coursematerial_name && version && name && startdate && enddate) {
     console.log('eka')
     const result = teacherCreatesTeachingInstanceService(teachingInstance, token)
     const jsonresult = res.json(result)

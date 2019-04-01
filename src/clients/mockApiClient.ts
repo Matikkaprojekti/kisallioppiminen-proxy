@@ -12,42 +12,31 @@ import UsersTeachingInstance from '../models/UsersTeachingInstance'
 const teachingInstancesMockData = teachingInstanceMock
 const usersTeachingInstancesMockData = usersTeachingInstancesMock
 
-<<<<<<< HEAD
 export function getTeachingInstancesForUser(token: string): Bluebird<UsersTeachingInstance[]> {
   const utis = usersTeachingInstancesMockData['420']
   return Bluebird.resolve(utis as UsersTeachingInstance[])
-=======
+}
+
 export function teacherCreatesTeachingInstance(teachingInstance: TeachingInstance, token: string): Bluebird<TeachingInstance> {
-  console.log('opettaja luo opetusinstanssin')
   teachingInstancesMockData.push(teachingInstance)
   return Bluebird.resolve(teachingInstancesMockData[teachingInstancesMockData.length - 1] as TeachingInstance)
->>>>>>> 5761541... could maybe create teaching instance
 }
 
-export function getTeachingInstancesForUser(token: string): Bluebird<UsersTeachingInstance[]> {
-  const utis = usersTeachingInstancesMockData['420']
-  return Bluebird.resolve(utis as UsersTeachingInstance[])
-}
-
-export function userJoinsTeachingInstance(token: string, user: User, coursekey: string): Bluebird<UsersTeachingInstance> {
+export function userJoinsTeachingInstance(token: string, student: User, coursekey: string): Bluebird<UsersTeachingInstance> {
   const ti = teachingInstancesMockData.find(e => e.coursekey === coursekey)
   if (ti) {
     const uti = <UsersTeachingInstance> {
-      coursekey: ti.name,
-<<<<<<< HEAD
-=======
-      courseinfo: ti.coursekey,
->>>>>>> 5761541... could maybe create teaching instance
-      coursematerial_name: ti.coursematerial_version,
-      version: ti.startdate,
-      name: ti.enddate,
+      coursekey: ti.coursekey,
+      coursematerial_name: ti.coursematerial_name,
+      version: ti.version,
+      name: ti.name,
       startdate: ti.startdate,
       enddate: ti.enddate,
       owner_id: 1,
       students: [
         {
-          firstname: user.name,
-          lastname: user.name,
+          firstname: student.name,
+          lastname: student.name,
           exercises: []
         }
       ]
