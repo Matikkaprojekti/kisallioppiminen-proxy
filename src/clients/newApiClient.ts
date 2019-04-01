@@ -11,10 +11,23 @@ const ENTRYPOINT = resolveEnvVar('BACKEND_ENTRYPOINT')
 const resolveUrl = (endpoint: string) => ENTRYPOINT + endpoint
 
 export function getTeachingInstancesForUser(token: string): Bluebird<UsersTeachingInstance[]> {
-  return null
+  console.log('menee4444')
+  const opts: request.RequestPromiseOptions = {
+    headers: {
+      Authorization: token
+    }
+  }
+  return request
+    .get(resolveUrl('/teachinginstances?teacher=false'), opts)
+    .then(JSON.parse)
+    .then(res => {
+      console.log(res)
+      return res
+    })
 }
 
-export function findUserById(__: number): any {
+export function findUserById(id: number): any {
+  console.log('menee123456')
   return null
 }
 
@@ -29,23 +42,29 @@ export function teacherCreatesTeachingInstance(teachingInstance: Teachinginstanc
     },
     json: teachingInstance
   }
-  return request
-    .post(resolveUrl('/teachinginstances'), opts)
-    .then(JSON.parse)
-    .then(res => res)
+  return (
+    request
+      .post(resolveUrl('/teachinginstances'), opts)
+      // .then(JSON.parse)
+      .then(res => res)
+  )
 }
 
 export function userJoinsTeachingInstance(token: string, user: User, coursekey: string): Bluebird<UsersTeachingInstance> {
+  console.log('pitäis tulla tänne')
   const opts: request.RequestPromiseOptions = {
     headers: {
       Authorization: token
     },
-    json: coursekey
+    json: { coursekey }
   }
-  return request
-    .patch(resolveUrl('/teachinginstances'), opts)
-    .then(JSON.parse)
-    .then(res => res)
+  console.log('coursekey = ', coursekey)
+  return (
+    request
+      .patch(resolveUrl('/teachinginstances'), opts)
+      // .then(JSON.parse)
+      .then(res => res)
+  )
 }
 
 export function findOrCreateTeachinginstance(newTeachingInstance: Teachinginstance, token: string) {

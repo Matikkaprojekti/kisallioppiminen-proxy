@@ -1,5 +1,5 @@
 export interface UserApiResponse {
-  id: number
+  user_id: number
   name: string
 }
 

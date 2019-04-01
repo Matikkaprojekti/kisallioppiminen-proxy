@@ -3,13 +3,14 @@ import { Request, Response, NextFunction } from 'express'
 
 export interface UserRequest extends Request {
   user: {
-    id: number
+    user_id: number
     name: string
   }
 }
 
 export function fetchUser(req: UserRequest, res: Response, next: NextFunction) {
   if (!req.get('Authorization') && process.env.NODE_ENV !== 'test') {
+    console.log('Eioo authii')
     return res.status(401).json({ error: 'Unauthorized' })
   }
 

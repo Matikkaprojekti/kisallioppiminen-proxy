@@ -23,6 +23,9 @@ export function teacherCreatesTeachingInstance(teachingInstance: TeachingInstanc
 }
 
 export function userJoinsTeachingInstance(token: string, student: User, coursekey: string): Bluebird<UsersTeachingInstance> {
+  console.log('viides')
+  console.log(student)
+  console.log('kuudes')
   const ti = teachingInstancesMockData.find(e => e.coursekey === coursekey)
   if (ti) {
     const uti = <UsersTeachingInstance> {
@@ -41,15 +44,18 @@ export function userJoinsTeachingInstance(token: string, student: User, courseke
         }
       ]
     }
+    console.log(uti)
     usersTeachingInstancesMockData['420'].push(uti)
     return Bluebird.resolve(uti as UsersTeachingInstance)
   }
   return null
 }
 
-export function findUserById(__: number) {
-  const student = userMock.id === __ ? userMock : null
+export function findUserById(id: number): Bluebird<UserApiResponse> {
+  const student = userMock.user_id === id ? userMock : null
+  console.log('eka')
   console.log(student)
+  console.log('toka')
   return Bluebird.resolve(student as UserApiResponse)
 }
 

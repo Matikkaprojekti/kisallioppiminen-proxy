@@ -4,14 +4,14 @@
       "coursekey": "eka",
       "coursematerial_name": "MAY1 - Luvut ja lukujonot",
       "version": "1",
-      "name": "Castron kesäkurssi",
+      "name": "maailman ensimmäinen kurssi",
       "startdate": "2017-03-14",
       "enddate": "2017-05-02",
       "owner_id": 123,
       "students": [
         {
-          "firstname": "Anthony",
-          "lastname": "Anthony",
+          "firstname": "Jorma",
+          "lastname": "Emmätiedä",
           "exercises": [
             {
               "uuid": "12a9f399-3b49-11e9-a38a-09f848b19644",
@@ -20,20 +20,6 @@
             {
               "uuid": "12a9f39a-3b49-11e9-a38a-09f848b19644",
               "status": "yellow"
-            }
-          ]
-        },
-        {
-          "firstname": "Bert",
-          "lastname": "Bert",
-          "exercises": [
-            {
-              "uuid": "12a9f399-3b49-11e9-a38a-09f848b19644",
-              "status": "red"
-            },
-            {
-              "uuid": "12a9f39a-3b49-11e9-a38a-09f848b19644",
-              "status": "red"
             }
           ]
         }
@@ -49,8 +35,8 @@
       "ownerd_id": 123,
       "students": [
         {
-          "firstname": "Anthony",
-          "lastname": "Anthony",
+          "firstname": "Jorma",
+          "lastname": "Emmätiedä",
           "exercises": [
             {
               "uuid": "12a9f396-3b49-11e9-a38a-09f848b19644",
@@ -59,20 +45,6 @@
             {
               "uuid": "12a9f397-3b49-11e9-a38a-09f848b19644",
               "status": "yellow"
-            }
-          ]
-        },
-        {
-          "firstname": "Bert",
-          "lastname": "Bert",
-          "exercises": [
-            {
-              "uuid": "12a9f398-3b49-11e9-a38a-09f848b19644",
-              "status": "red"
-            },
-            {
-              "uuid": "12a9f397-3b49-11e9-a38a-09f848b19644",
-              "status": "green"
             }
           ]
         }
@@ -88,8 +60,8 @@
       "owner_id": 1234,
       "students": [
         {
-          "firstname": "Anthony",
-          "lastname": "Anthony",
+          "firstname": "Jorma",
+          "lastname": "Emmätiedä",
           "exercises": [
             {
               "uuid": "12a9cc85-3b49-11e9-a38a-09f848b19644",
@@ -97,20 +69,6 @@
             },
             {
               "uuid": "12a9cc86-3b49-11e9-a38a-09f848b19644",
-              "status": "yellow"
-            }
-          ]
-        },
-        {
-          "firstname": "Bert",
-          "lastname": "Bert",
-          "exercises": [
-            {
-              "uuid": "12a9cc87-3b49-11e9-a38a-09f848b19644",
-              "status": "red"
-            },
-            {
-              "uuid": "12a9cc85-3b49-11e9-a38a-09f848b19644",
               "status": "yellow"
             }
           ]

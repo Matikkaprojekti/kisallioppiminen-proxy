@@ -1,3 +1,5 @@
+import Student from './Student'
+
 export default interface Teachinginstance {
   coursekey: string
   name: string
@@ -6,4 +8,5 @@ export default interface Teachinginstance {
   coursematerial_name: string
   version: string
   owner_id: number
+  students: Student[]
 }
