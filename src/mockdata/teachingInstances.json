@@ -1,7 +1,7 @@
 [
   {
     "coursekey": "kuuba",
-    "name": "MAA1",
+    "name": "Castron kesäkurssi",
     "startdate": "10-10-1995",
     "enddate": "10-11-1996",
     "coursematerial_name": "matsku",
@@ -10,7 +10,7 @@
   },
   {
     "coursekey": "mockkurssi",
-    "coursematerial_name": "matsku",
+    "coursematerial_name": "mock kurssi",
     "version": "eka",
     "name": "MAB3",
     "startdate": "10-10-1995",
