@@ -61,7 +61,7 @@ export function userJoinsTeachingInstance(token: string, user: User, coursekey: 
   console.log('coursekey = ', coursekey)
   return (
     request
-      .patch(resolveUrl('/teachinginstances'), opts)
+      .patch(resolveUrl('/teachinginstances?teacher=false'), opts)
       // .then(JSON.parse)
       .then(res => res)
   )
