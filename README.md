@@ -23,7 +23,7 @@ Palvelin joka välittää pyyntöjä mockidataan tai "oikealle"(eli useinmiten l
 * (LOKAALI BACKEND ELI NODE_ENV=dev) Kirjautuminen vaatii google tunnuksen, ja kirjautuminen pitää suorittaa frontendin kautta. Huomaa myös että backendin pitää olla käynnissä, joko lokaalisti tai herokussa ja DEV_BACKEND_ENTRYPOINT sen mukainen! Ohjeet lokaalin backendin
 asennukseen löydät osoitteesta https://github.com/Matikkaprojekti/kisallioppiminen-backend
 
-5. Eli kokonaisvaltaiseen end-to-end devaukseen pitää olla käynnissä yhtä aikaa frontend, proxy ja end! 
+5. Eli kokonaisvaltaiseen end-to-end devaukseen pitää olla käynnissä yhtä aikaa frontend, proxy ja backend! 
 
 
 ### Tarjolla olevat urlit:
