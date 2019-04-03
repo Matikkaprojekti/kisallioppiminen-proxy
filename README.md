@@ -15,6 +15,7 @@ Palvelin joka välittää pyyntöjä mockidataan tai "oikealle"(eli useinmiten l
 * PROD_CORS_ORIGIN=
 * Jos haluat käyttää lokaalia backendiä niin vaihda NODE_ENV=dev
 3. `npm run watch`
+
 4 a. 
 * (MOCK DATA ELI NODE_ENV=test) Testaa toimivuus menemällä http://localhost:8080/users/me , jonka pitäisi palauttaa unauthorized. Kun käynnistät frontendin, surffaat lokaaliin frontendiin(esimerkiksi http://localhost:3000 , niin "Jorman" pitäisi kirjautua automaatisesti(MOCK DATALLA) ja http://localhost:8080/users/me pitäisi palauttaa { user_id: 420, name: "Jorma" }.
 
