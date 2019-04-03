@@ -16,11 +16,11 @@ Palvelin joka välittää pyyntöjä mockidataan tai "oikealle"(eli useinmiten l
 * Jos haluat käyttää lokaalia backendiä niin vaihda NODE_ENV=dev
 3. `npm run watch`
 
-4 a. 
-* (MOCK DATA ELI NODE_ENV=test) Testaa toimivuus menemällä http://localhost:8080/users/me , jonka pitäisi palauttaa unauthorized. Kun käynnistät frontendin, surffaat lokaaliin frontendiin(esimerkiksi http://localhost:3000 , niin "Jorman" pitäisi kirjautua automaatisesti(MOCK DATALLA) ja http://localhost:8080/users/me pitäisi palauttaa { user_id: 420, name: "Jorma" }.
+4 a. (MOCK DATA ELI NODE_ENV=test)
+* Testaa toimivuus menemällä http://localhost:8080/users/me , jonka pitäisi palauttaa unauthorized. Kun käynnistät frontendin, surffaat lokaaliin frontendiin(esimerkiksi http://localhost:3000 , niin "Jorman" pitäisi kirjautua automaatisesti(MOCK DATALLA) ja http://localhost:8080/users/me pitäisi palauttaa { user_id: 420, name: "Jorma" }.
 
-4 b. 
-* (LOKAALI BACKEND ELI NODE_ENV=dev) Kirjautuminen vaatii google tunnuksen, ja kirjautuminen pitää suorittaa frontendin kautta. Huomaa myös että backendin pitää olla käynnissä, joko lokaalisti tai herokussa ja DEV_BACKEND_ENTRYPOINT sen mukainen! Ohjeet lokaalin backendin
+4 b. (LOKAALI BACKEND ELI NODE_ENV=dev)
+* Kirjautuminen vaatii google tunnuksen, ja kirjautuminen pitää suorittaa frontendin kautta. Huomaa myös että backendin pitää olla käynnissä, joko lokaalisti tai herokussa ja DEV_BACKEND_ENTRYPOINT sen mukainen! Ohjeet lokaalin backendin
 asennukseen löydät osoitteesta https://github.com/Matikkaprojekti/kisallioppiminen-backend
 
 5. Eli kokonaisvaltaiseen end-to-end devaukseen pitää olla käynnissä yhtä aikaa frontend, proxy ja backend! 
