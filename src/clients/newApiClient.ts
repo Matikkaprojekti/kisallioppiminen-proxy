@@ -10,15 +10,27 @@ const ENTRYPOINT = resolveEnvVar('BACKEND_ENTRYPOINT')
 
 const resolveUrl = (endpoint: string) => ENTRYPOINT + endpoint
 
+export function updateOrCreateTrafficlight(token: string, exercise_uuid: string, coursekey: string, status: string, user_id: number): Bluebird<{}> {
+  const opts: request.RequestPromiseOptions = {
+    headers: {
+      Authorization: token
+    },
+    json: { status, coursekey }
+  }
+  return request.put(resolveUrl('/trafficlights/' + exercise_uuid), opts).then(res => {
+    console.log(res)
+    return res
+  })
+}
+
 export function getTeachingInstancesForUser(token: string): Bluebird<UsersTeachingInstance[]> {
-  console.log('menee4444')
   const opts: request.RequestPromiseOptions = {
     headers: {
       Authorization: token
     }
   }
   return request
-    .get(resolveUrl('/teachinginstances?teacher=false'), opts)
+    .get(resolveUrl('/teachinginstances/false'), opts)
     .then(JSON.parse)
     .then(res => {
       console.log(res)
@@ -61,7 +73,7 @@ export function userJoinsTeachingInstance(token: string, user: User, coursekey: 
   console.log('coursekey = ', coursekey)
   return (
     request
-      .patch(resolveUrl('/teachinginstances?teacher=false'), opts)
+      .patch(resolveUrl('/teachinginstances'), opts)
       // .then(JSON.parse)
       .then(res => res)
   )
