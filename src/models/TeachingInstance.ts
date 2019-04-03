@@ -1,10 +1,12 @@
+import Student from './Student'
+
 export default interface Teachinginstance {
-  courseKey: string
-  courseinfo: string
+  coursekey: string
   name: string
   startdate: string
   enddate: string
   coursematerial_name: string
-  coursematerial_version: string
-  students: Array<{ user_id: number; username: string }>
+  version: string
+  owner_id: number
+  students: Student[]
 }

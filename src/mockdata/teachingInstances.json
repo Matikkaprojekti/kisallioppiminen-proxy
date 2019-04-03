@@ -1,29 +1,139 @@
 [
   {
-    "courseKey": "kuuba",
-    "name": "MAA1",
-    "startdate": "10-10-1995",
-    "enddate": "10-11-1996",
-    "coursematerial_name": "matsku",
-    "coursematerial_version": "eka",
+    "coursekey": "eka",
+    "coursematerial_name": "MAY1 - Luvut ja lukujonot",
+    "version": "1",
+    "name": "maailman ensimmäinen kurssi",
+    "startdate": "2017-03-14",
+    "enddate": "2017-05-02",
+    "owner_id": 123,
     "students": [
       {
-        "user_id": 420,
-        "username": "Jorma"
+        "firstname": "Jorma",
+        "lastname": "Emmätiedä",
+        "exercises": [
+          {
+            "uuid": "12a9f399-3b49-11e9-a38a-09f848b19644",
+            "status": "green"
+          },
+          {
+            "uuid": "12a9f39a-3b49-11e9-a38a-09f848b19644",
+            "status": "yellow"
+          }
+        ]
       },
       {
-        "user_id": 1337,
-        "username": "Maija"
+        "firstname": "Maija",
+        "lastname": "Mallikas",
+        "exercises": [
+          {
+            "uuid": "12a9f399-3b49-11e9-a38a-09f848b19644",
+            "status": "yellow"
+          },
+          {
+            "uuid": "12a9f39a-3b49-11e9-a38a-09f848b19644",
+            "status": "red"
+          }
+        ]
       }
     ]
   },
   {
-    "courseKey": "mockkurssi",
-    "name": "MAB3",
+    "coursekey": "matikkaonkivaa2",
+    "coursematerial_name": "MAY1 - Luvut ja lukujonot",
+    "version": "1.1",
+    "name": "Opettaja keksinyt",
+    "startdate": "2017-03-14",
+    "enddate": "2017-05-02",
+    "ownerd_id": 123,
+    "students": [
+      {
+        "firstname": "Jorma",
+        "lastname": "Emmätiedä",
+        "exercises": [
+          {
+            "uuid": "12a9f396-3b49-11e9-a38a-09f848b19644",
+            "status": "green"
+          },
+          {
+            "uuid": "12a9f397-3b49-11e9-a38a-09f848b19644",
+            "status": "yellow"
+          }
+        ]
+      },
+      {
+        "firstname": "Maija",
+        "lastname": "Mallikas",
+        "exercises": [
+          {
+            "uuid": "12a9f399-3b49-11e9-a38a-09f848b19644",
+            "status": "yellow"
+          },
+          {
+            "uuid": "12a9f39a-3b49-11e9-a38a-09f848b19644",
+            "status": "red"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "coursekey": "jotain",
+    "coursematerial_name": "MAA3 - Geometria",
+    "version": "1",
+    "name": "Opettaja ei keksinyt",
+    "startdate": "2017-03-14",
+    "enddate": "2017-05-02",
+    "owner_id": 1234,
+    "students": [
+      {
+        "firstname": "Jorma",
+        "lastname": "Emmätiedä",
+        "exercises": [
+          {
+            "uuid": "12a9cc85-3b49-11e9-a38a-09f848b19644",
+            "status": "green"
+          },
+          {
+            "uuid": "12a9cc86-3b49-11e9-a38a-09f848b19644",
+            "status": "yellow"
+          }
+        ]
+      },
+      {
+        "firstname": "Maija",
+        "lastname": "Mallikas",
+        "exercises": [
+          {
+            "uuid": "12a9f399-3b49-11e9-a38a-09f848b19644",
+            "status": "yellow"
+          },
+          {
+            "uuid": "12a9f39a-3b49-11e9-a38a-09f848b19644",
+            "status": "red"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "coursekey": "kuuba",
+    "coursematerial_name": "MAB2 - Tabit ja sarakkeet",
+    "version": "Mantsalan-lukio",
+    "name": "MAB2 - Tabit ja sarakkeet",
     "startdate": "10-10-1995",
     "enddate": "10-11-1996",
-    "coursematerial_name": "matsku",
-    "coursematerial_version": "eka",
+    "owner_id": 3,
+    "students": []
+  },
+  {
+    "coursekey": "mockkurssi",
+    "coursematerial_name": "MAB2 - Tabit ja sarakkeet",
+    "version": "Versio-1",
+    "name": "MAB2 - Tabit ja sarakkeet",
+    "startdate": "10-10-1995",
+    "enddate": "10-11-1996",
+    "owner_id": 3,
     "students": []
   }
 ]

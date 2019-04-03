@@ -3,7 +3,18 @@ import Teachinginstance from '../models/TeachingInstance'
 import User from '../models/User'
 import { ApiTeachingInstanceObject } from '../types/apiTypes'
 
-const { getTeachingInstancesForUser, userJoinsTeachingInstance, findOrCreateTeachinginstance, findUserById, findTeachingInstanceByCourseKey } = client
+const {
+  teacherCreatesTeachingInstance,
+  getTeachingInstancesForUser,
+  userJoinsTeachingInstance,
+  findOrCreateTeachinginstance,
+  findUserById,
+  findTeachingInstanceByCourseKey
+} = client
+
+export function teacherCreatesTeachingInstanceService(teachingInstance: Teachinginstance, token: string) {
+  return teacherCreatesTeachingInstance(teachingInstance, token)
+}
 
 export function getTeachingInstancesForUserService(token: string) {
   return getTeachingInstancesForUser(token)

@@ -17,14 +17,22 @@ export function getTeachingInstancesForUser(token: string): Bluebird<UsersTeachi
   return Bluebird.resolve(utis as UsersTeachingInstance[])
 }
 
+export function teacherCreatesTeachingInstance(teachingInstance: TeachingInstance, token: string): Bluebird<TeachingInstance> {
+  teachingInstancesMockData.push(teachingInstance)
+  return Bluebird.resolve(teachingInstancesMockData[teachingInstancesMockData.length - 1] as TeachingInstance)
+}
+
 export function userJoinsTeachingInstance(token: string, student: User, coursekey: string): Bluebird<UsersTeachingInstance> {
-  const ti = teachingInstancesMockData.find(e => e.courseKey === coursekey)
+  console.log('viides')
+  console.log(student)
+  console.log('kuudes')
+  const ti = teachingInstancesMockData.find(e => e.coursekey === coursekey)
   if (ti) {
     const uti = <UsersTeachingInstance> {
-      coursekey: ti.name,
-      coursematerial_name: ti.coursematerial_version,
-      version: ti.startdate,
-      name: ti.enddate,
+      coursekey: ti.coursekey,
+      coursematerial_name: ti.coursematerial_name,
+      version: ti.version,
+      name: ti.name,
       startdate: ti.startdate,
       enddate: ti.enddate,
       owner_id: 1,
@@ -36,20 +44,23 @@ export function userJoinsTeachingInstance(token: string, student: User, courseke
         }
       ]
     }
+    console.log(uti)
     usersTeachingInstancesMockData['420'].push(uti)
     return Bluebird.resolve(uti as UsersTeachingInstance)
   }
   return null
 }
 
-export function findUserById(__: number) {
-  const student = userMock.id === __ ? userMock : null
+export function findUserById(id: number): Bluebird<UserApiResponse> {
+  const student = userMock.user_id === id ? userMock : null
+  console.log('eka')
   console.log(student)
+  console.log('toka')
   return Bluebird.resolve(student as UserApiResponse)
 }
 
 export function findTeachingInstanceByCourseKey(courseKey: string): Bluebird<TeachingInstance> {
-  const ti = teachingInstanceMock.find(e => e.courseKey === courseKey)
+  const ti = teachingInstanceMock.find(e => e.coursekey === courseKey)
   return Bluebird.resolve(ti as TeachingInstance)
 }
 
