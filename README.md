@@ -1,8 +1,8 @@
-# kisallioppiminen-backend
+# kisallioppiminen-proxy
 
 Palvelin joka välittää pyyntöjä mockidataan tai "oikealle"(eli useinmiten lokaalille) back-endille riippuen ympäristömuuttujista.
 
-### Ohjeet backendin lokaaliin devauskäyttöön:
+### Ohjeet proxyn lokaaliin devauskäyttöön:
 1. `git clone git@github.com:Matikkaprojekti/kisallioppiminen-proxy.git && cd kisallioppiminen-proxy/ && npm install`
 2. `cp .env.example .env` ja täytä kentät esim mockidatalle:
 NODE_ENV=test
