@@ -14,6 +14,7 @@ Palvelin joka välittää pyyntöjä mockidataan tai "oikealle"(eli useinmiten l
 * STAGING_CORS_ORIGIN=
 * PROD_CORS_ORIGIN=
 * Jos haluat käyttää lokaalia backendiä niin vaihda NODE_ENV=dev
+
 3. `npm run watch`
 
 4 a. (MOCK DATA ELI NODE_ENV=test)
@@ -22,6 +23,9 @@ Palvelin joka välittää pyyntöjä mockidataan tai "oikealle"(eli useinmiten l
 4 b. (LOKAALI BACKEND ELI NODE_ENV=dev)
 * Kirjautuminen vaatii google tunnuksen, ja kirjautuminen pitää suorittaa frontendin kautta. Huomaa myös että backendin pitää olla käynnissä, joko lokaalisti tai herokussa ja DEV_BACKEND_ENTRYPOINT sen mukainen! Ohjeet lokaalin backendin
 asennukseen löydät osoitteesta https://github.com/Matikkaprojekti/kisallioppiminen-backend
+
+4 c. (HEROKUN BACKEND)
+* Jos et halua asentaa backendiä lokaalisti, etkä tahdo käyttää mockidataa, aseta NODE_ENV=dev ja DEV_BACKEND_ENTRYPOINT=https://ko-be-staging.herokuapp.com
 
 5. Eli kokonaisvaltaiseen end-to-end devaukseen pitää olla käynnissä yhtä aikaa frontend, proxy ja backend! 
 
