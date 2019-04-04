@@ -15,9 +15,12 @@ const router: Router = Router()
 
 router.get('/', fetchUser, (req: UserRequest, res: Response) => {
   console.log('gettii tulee')
-  const studentId = req.user.user_id
+  const teacher = req.query.teacher
+  console.log('opettaja = ', teacher)
+  // const studentId = req.user.user_id
   const token = req.get('Authorization')
-  getTeachingInstancesForUserService(token).then(teachingInstances => res.json(teachingInstances))
+  console.log(token)
+  getTeachingInstancesForUserService(token, teacher).then(teachingInstances => res.json(teachingInstances))
 })
 
 router.post('/', fetchUser, async (req: UserRequest, res: Response) => {
