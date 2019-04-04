@@ -33,16 +33,7 @@ export function getTeachingInstancesForUser(token: string, teacher: string): Blu
   const pathparam = teacher === 'true' ? '?teacher=true' : '?teacher=false'
   console.log('pathparam = ', pathparam)
 
-  return (
-    request
-      .get(resolveUrl(`/teachinginstances${pathparam}`), opts)
-      // .get(resolveUrl(`/teachinginstances?teacher=false`), opts)
-      .then(JSON.parse)
-      .then(res => {
-        console.log(res)
-        return res
-      })
-  )
+  return request.get(resolveUrl(`/teachinginstances${pathparam}`), opts).then(res => res)
 }
 
 export function findUserById(id: number): any {
