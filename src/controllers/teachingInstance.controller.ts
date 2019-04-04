@@ -13,14 +13,16 @@ import Student from '../models/Student'
 
 const router: Router = Router()
 
-router.get('/', fetchUser, (req: UserRequest, res: Response) => {
+router.get('/', fetchUser, async (req: UserRequest, res: Response) => {
   console.log('gettii tulee')
   const teacher = req.query.teacher
   console.log('opettaja = ', teacher)
   // const studentId = req.user.user_id
   const token = req.get('Authorization')
   console.log(token)
-  getTeachingInstancesForUserService(token, teacher).then(teachingInstances => res.json(teachingInstances))
+  // getTeachingInstancesForUserService(token, teacher).then(teachingInstances => res.json(teachingInstances))
+  const result = await getTeachingInstancesForUserService(token, teacher)
+  res.json(result)
 })
 
 router.post('/', fetchUser, async (req: UserRequest, res: Response) => {
