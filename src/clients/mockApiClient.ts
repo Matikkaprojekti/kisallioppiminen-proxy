@@ -16,7 +16,7 @@ export function updateOrCreateTrafficlight(token: string, status: string, course
   return null
 }
 
-export function getTeachingInstancesForUser(token: string, teacher: string): Bluebird<UsersTeachingInstance[]> {
+export function getTeachingInstancesForUser(token: string): Bluebird<UsersTeachingInstance[]> {
   const utis = usersTeachingInstancesMockData['420']
   return Bluebird.resolve(utis as UsersTeachingInstance[])
 }
