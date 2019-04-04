@@ -16,4 +16,4 @@ router.get('/courses', fetchUser, (req: UserRequest, res: Response) => {
   getCoursesForUser(req.cookies['connect.sid']).then(courses => res.json(courses))
 })
 
-export const UserController: Router = router
+export const userController: Router = router

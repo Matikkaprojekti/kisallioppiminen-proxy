@@ -77,4 +77,4 @@ router.patch('/', fetchUser, async (req: UserRequest, res: Response) => {
   }
 })
 
-export const TeachingInstanceController: Router = router
+export const teachingInstanceController: Router = router

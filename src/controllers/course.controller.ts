@@ -16,4 +16,4 @@ router.get('/', (req: Request, res: Response) => {
 
 // router.put('/:id', (req: Request, res: Response) => {})
 
-export const CourseController: Router = router
+export const courseController: Router = router

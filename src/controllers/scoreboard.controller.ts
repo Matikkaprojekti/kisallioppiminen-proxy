@@ -21,4 +21,4 @@ is a teacher of the course with id:id.
 //   res.json(scoreboard)
 // })
 
-export const ScoreboardController: Router = router
+export const scoreboardController: Router = router

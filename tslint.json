@@ -13,7 +13,8 @@
     "interface-name": false,
     "arrow-parens": false,
     "indent": [true, "spaces", 2],
-    "no-angle-bracket-type-assertion": false
+    "no-angle-bracket-type-assertion": false,
+    "variable-name": [true, "allow-snake-case"]
   },
   "rulesDirectory": []
 }
