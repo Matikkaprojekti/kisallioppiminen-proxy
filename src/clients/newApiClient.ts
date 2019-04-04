@@ -29,11 +29,16 @@ export function getTeachingInstancesForUser(token: string, teacher: string): Blu
       Authorization: token
     }
   }
-  console.log('opettaja3 = ', teacher)
   const pathparam = teacher === 'true' ? '?teacher=true' : '?teacher=false'
-  console.log('pathparam = ', pathparam)
-
-  return request.get(resolveUrl(`/teachinginstances${pathparam}`), opts).then(res => res)
+  return request
+    .get(resolveUrl(`/teachinginstances${pathparam}`), opts)
+    .then(res => res)
+    .then(JSON.parse)
+    .then(res => res as UsersTeachingInstance[])
+    .catch(e => {
+      console.error(e)
+      return null
+    })
 }
 
 export function findUserById(id: number): any {
