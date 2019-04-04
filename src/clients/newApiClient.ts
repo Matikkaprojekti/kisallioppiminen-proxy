@@ -23,19 +23,26 @@ export function updateOrCreateTrafficlight(token: string, exercise_uuid: string,
   })
 }
 
-export function getTeachingInstancesForUser(token: string): Bluebird<UsersTeachingInstance[]> {
+export function getTeachingInstancesForUser(token: string, teacher: string): Bluebird<UsersTeachingInstance[]> {
   const opts: request.RequestPromiseOptions = {
     headers: {
       Authorization: token
     }
   }
-  return request
-    .get(resolveUrl('/teachinginstances/false'), opts)
-    .then(JSON.parse)
-    .then(res => {
-      console.log(res)
-      return res
-    })
+  console.log('opettaja3 = ', teacher)
+  const pathparam = teacher === 'true' ? '?teacher=true' : '?teacher=false'
+  console.log('pathparam = ', pathparam)
+
+  return (
+    request
+      .get(resolveUrl(`/teachinginstances${pathparam}`), opts)
+      // .get(resolveUrl(`/teachinginstances?teacher=false`), opts)
+      .then(JSON.parse)
+      .then(res => {
+        console.log(res)
+        return res
+      })
+  )
 }
 
 export function findUserById(id: number): any {
