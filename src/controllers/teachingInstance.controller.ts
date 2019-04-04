@@ -2,8 +2,6 @@ import { Router, Request, Response } from 'express'
 import {
   userJoinsTeachingInstanceService,
   findUserByIdService,
-  // findOrCreateTeachingInstanceService,
-  findTeachingInstanceByCourseKeyService,
   getTeachingInstancesForUserService,
   teacherCreatesTeachingInstanceService
 } from '../services/teachingInstanceService'
@@ -17,7 +15,6 @@ router.get('/', fetchUser, async (req: UserRequest, res: Response) => {
   console.log('gettii tulee')
   const teacher = req.query.teacher
   console.log('opettaja = ', teacher)
-  // const studentId = req.user.user_id
   const token = req.get('Authorization')
   console.log(token)
   // getTeachingInstancesForUserService(token, teacher).then(teachingInstances => res.json(teachingInstances))
@@ -29,32 +26,18 @@ router.post('/', fetchUser, async (req: UserRequest, res: Response) => {
   console.log('se on tää')
   const { coursekey, courseinfo, name, startdate, enddate, coursematerial_name, version } = req.body
   console.log(req.body)
-  const students: Student[] = []
 
   const token = req.get('Authorization')
-  console.log('token = ', token)
-  console.log('coursekey = ', coursekey)
-  console.log('coursematerial_name = ', coursematerial_name)
-  console.log('version = ', version)
-  console.log('name = ', name)
-  console.log('startdate = ', startdate)
-  console.log('enddate = ', enddate)
+  // console.log('token = ', token)
+  // console.log('coursekey = ', coursekey)
+  // console.log('coursematerial_name = ', coursematerial_name)
+  // console.log('version = ', version)
+  // console.log('name = ', name)
+  // console.log('startdate = ', startdate)
+  // console.log('enddate = ', enddate)
   const ownerId = req.user.user_id
-  console.log('ownerId = ', ownerId)
+  // console.log('ownerId = ', ownerId)
 
-  // const teachingInstance = {
-  //   coursekey,
-  //   name,
-  //   startdate,
-  //   enddate,
-  //   coursematerial_name,
-  //   version,
-  //   owner_id: req.user.user_id
-  //   students
-  // }
-  // console.log(teachingInstance)
-
-  // Check that required params are present
   if (coursekey && coursematerial_name && version && name && startdate && enddate) {
     console.log('eka')
     const result = await teacherCreatesTeachingInstanceService(req.body, token)
