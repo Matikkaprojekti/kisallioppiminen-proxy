@@ -15,9 +15,13 @@ const router: Router = Router()
 
 router.get('/', fetchUser, (req: UserRequest, res: Response) => {
   console.log('gettii tulee')
-  const studentId = req.user.user_id
+  if (!req.user) {
+    return res.status(401).json({error: 'Unauthorized'})
+  }
+  const studentId = req.user.id
   const token = req.get('Authorization')
-  getTeachingInstancesForUserService(token).then(teachingInstances => res.json(teachingInstances))
+  const teacher = req.query.teacher === 'true'
+  getTeachingInstancesForUserService(token, teacher).then(teachingInstances => res.json(teachingInstances))
 })
 
 router.post('/', fetchUser, async (req: UserRequest, res: Response) => {
@@ -34,7 +38,7 @@ router.post('/', fetchUser, async (req: UserRequest, res: Response) => {
   console.log('name = ', name)
   console.log('startdate = ', startdate)
   console.log('enddate = ', enddate)
-  const ownerId = req.user.user_id
+  const ownerId = req.user.id
   console.log('ownerId = ', ownerId)
 
   // const teachingInstance = {
@@ -63,7 +67,7 @@ router.post('/', fetchUser, async (req: UserRequest, res: Response) => {
 })
 router.patch('/', fetchUser, async (req: UserRequest, res: Response) => {
   console.log('tulee patchii')
-  const studentId = req.user.user_id
+  const studentId = req.user.id
   const coursekey = req.body.coursekey
   const user = await findUserByIdService(studentId)
   const token = req.get('Authorization')

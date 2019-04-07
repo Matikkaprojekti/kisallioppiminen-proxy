@@ -12,7 +12,7 @@ router.put('/:uuid', fetchUser, async (req: UserRequest, res: Response) => {
   console.log('user: ', user)
 
   // tslint:disable-next-line
-  const user_id = user.user_id
+  const user_id = user.id
 
   // Luodaan exercise jos sitä ei ole olemassa...
   const newExercise = { uuid, coursekey }

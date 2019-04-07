@@ -1,11 +1,9 @@
 import { getUser } from '../services/userService'
 import { Request, Response, NextFunction } from 'express'
+import { UserApiResponse } from '../types/apiTypes'
 
 export interface UserRequest extends Request {
-  user: {
-    user_id: number
-    name: string
-  }
+  user: UserApiResponse
 }
 
 export function fetchUser(req: UserRequest, res: Response, next: NextFunction) {

@@ -8,7 +8,7 @@ const router: Router = Router()
 
 /* Return all scoreboards of teacher with certain id */
 router.get('/teachers/me/scoreboards', fetchUser, (req: UserRequest, res: Response) => {
-  const teacherId = req.user.user_id
+  const teacherId = req.user.id
   getAllScoreboards(req.cookies._kisallioppiminen_server_session, teacherId).then(scoreboards => res.json(scoreboards))
 })
 

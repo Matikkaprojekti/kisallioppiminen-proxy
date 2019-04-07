@@ -16,7 +16,7 @@ export function updateOrCreateTrafficlight(token: string, status: string, course
   return null
 }
 
-export function getTeachingInstancesForUser(token: string): Bluebird<UsersTeachingInstance[]> {
+export function getTeachingInstancesForUser(token: string, _: boolean): Bluebird<UsersTeachingInstance[]> {
   const utis = usersTeachingInstancesMockData['420']
   return Bluebird.resolve(utis as UsersTeachingInstance[])
 }
@@ -56,7 +56,7 @@ export function userJoinsTeachingInstance(token: string, student: User, courseke
 }
 
 export function findUserById(id: number): Bluebird<UserApiResponse> {
-  const student = userMock.user_id === id ? userMock : null
+  const student = userMock.id === id ? userMock : null
   console.log('eka')
   console.log(student)
   console.log('toka')

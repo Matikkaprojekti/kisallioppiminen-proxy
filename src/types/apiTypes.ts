@@ -1,6 +1,7 @@
 export interface UserApiResponse {
-  user_id: number
+  id: number
   name: string
+  lastname: string
 }
 
 export interface ApiCourseObject {

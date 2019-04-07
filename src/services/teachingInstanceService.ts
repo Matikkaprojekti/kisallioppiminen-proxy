@@ -16,8 +16,8 @@ export function teacherCreatesTeachingInstanceService(teachingInstance: Teaching
   return teacherCreatesTeachingInstance(teachingInstance, token)
 }
 
-export function getTeachingInstancesForUserService(token: string) {
-  return getTeachingInstancesForUser(token)
+export function getTeachingInstancesForUserService(token: string, teacher: boolean) {
+  return getTeachingInstancesForUser(token, teacher)
 }
 export function userJoinsTeachingInstanceService(token: string, user: User, courseKey: string) {
   return userJoinsTeachingInstance(token, user, courseKey)

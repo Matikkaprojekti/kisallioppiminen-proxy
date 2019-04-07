@@ -1,4 +1,4 @@
 export default interface User {
-  user_id: number
+  id: number
   name: string
 }
