@@ -79,6 +79,22 @@ export function userJoinsTeachingInstance(token: string, user: User, coursekey: 
   )
 }
 
+export function userLeavesTeachingInstance(token: string, coursekey: string): any {
+  console.log('käyttäjä lähtee opetusinstanssista..')
+  const opts: request.RequestPromiseOptions = {
+    headers: {
+      Authorization: token
+    }
+  }
+  console.log('coursekey = ', coursekey)
+  return (
+    request
+      .delete(resolveUrl(`/teachinginstances/${coursekey}`), opts)
+      // .then(JSON.parse)
+      .then(res => res)
+  )
+}
+
 export function findOrCreateTeachinginstance(newTeachingInstance: Teachinginstance, token: string) {
   const opts: request.RequestPromiseOptions = {
     headers: {

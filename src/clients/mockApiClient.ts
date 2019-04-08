@@ -55,6 +55,10 @@ export function userJoinsTeachingInstance(token: string, student: User, courseke
   return null
 }
 
+export function userLeavesTeachingInstance(token: string, coursekey: string): any {
+  return null
+}
+
 export function findUserById(id: number): Bluebird<UserApiResponse> {
   const student = userMock.id === id ? userMock : null
   console.log('eka')

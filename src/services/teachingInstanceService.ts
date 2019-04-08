@@ -7,6 +7,7 @@ const {
   teacherCreatesTeachingInstance,
   getTeachingInstancesForUser,
   userJoinsTeachingInstance,
+  userLeavesTeachingInstance,
   findOrCreateTeachinginstance,
   findUserById,
   findTeachingInstanceByCourseKey
@@ -19,8 +20,11 @@ export function teacherCreatesTeachingInstanceService(teachingInstance: Teaching
 export function getTeachingInstancesForUserService(token: string, teacher: boolean) {
   return getTeachingInstancesForUser(token, teacher)
 }
-export function userJoinsTeachingInstanceService(token: string, user: User, courseKey: string) {
-  return userJoinsTeachingInstance(token, user, courseKey)
+export function userJoinsTeachingInstanceService(token: string, user: User, coursekey: string) {
+  return userJoinsTeachingInstance(token, user, coursekey)
+}
+export function userLeavesTeachingInstanceService(token: string, coursekey: string) {
+  return userLeavesTeachingInstance(token, coursekey)
 }
 
 export function findOrCreateTeachingInstanceService(nt: Teachinginstance, token: string) {

@@ -1,6 +1,7 @@
 import { Router, Request, Response } from 'express'
 import {
   userJoinsTeachingInstanceService,
+  userLeavesTeachingInstanceService,
   findUserByIdService,
   // findOrCreateTeachingInstanceService,
   findTeachingInstanceByCourseKeyService,
@@ -41,19 +42,6 @@ router.post('/', fetchUser, async (req: UserRequest, res: Response) => {
   const ownerId = req.user.id
   console.log('ownerId = ', ownerId)
 
-  // const teachingInstance = {
-  //   coursekey,
-  //   name,
-  //   startdate,
-  //   enddate,
-  //   coursematerial_name,
-  //   version,
-  //   owner_id: req.user.user_id
-  //   students
-  // }
-  // console.log(teachingInstance)
-
-  // Check that required params are present
   if (coursekey && coursematerial_name && version && name && startdate && enddate) {
     console.log('eka')
     const result = await teacherCreatesTeachingInstanceService(req.body, token)
@@ -81,4 +69,18 @@ router.patch('/', fetchUser, async (req: UserRequest, res: Response) => {
   }
 })
 
+router.delete('/:coursekey', fetchUser, async (req: UserRequest, res: Response) => {
+  console.log('tulee deleteen')
+  const studentId = req.user.user_id
+  const coursekey = req.params.coursekey
+  // const user = await findUserByIdService(studentId)
+  const token = req.get('Authorization')
+  if (coursekey) {
+    const result = await userLeavesTeachingInstanceService(token, coursekey)
+    res.send(result)
+  } else {
+    res.status(400)
+    res.json({ error: 'Bad request' })
+  }
+})
 export const teachingInstanceController: Router = router
