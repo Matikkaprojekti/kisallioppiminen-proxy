@@ -1,0 +1,79 @@
+{
+  "420": [
+    {
+      "coursekey": "eka",
+      "coursematerial_name": "MAY1 - Luvut ja lukujonot",
+      "version": "1",
+      "name": "maailman ensimmäinen kurssi",
+      "startdate": "2017-03-14",
+      "enddate": "2017-05-02",
+      "owner_id": 123,
+      "students": [
+        {
+          "firstname": "Jorma",
+          "lastname": "Emmätiedä",
+          "exercises": [
+            {
+              "uuid": "12a9f399-3b49-11e9-a38a-09f848b19644",
+              "status": "green"
+            },
+            {
+              "uuid": "12a9f39a-3b49-11e9-a38a-09f848b19644",
+              "status": "yellow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "coursekey": "matikkaonkivaa2",
+      "coursematerial_name": "MAY1 - Luvut ja lukujonot",
+      "version": "1.1",
+      "name": "Opettaja keksinyt",
+      "startdate": "2017-03-14",
+      "enddate": "2017-05-02",
+      "ownerd_id": 123,
+      "students": [
+        {
+          "firstname": "Jorma",
+          "lastname": "Emmätiedä",
+          "exercises": [
+            {
+              "uuid": "12a9f396-3b49-11e9-a38a-09f848b19644",
+              "status": "green"
+            },
+            {
+              "uuid": "12a9f397-3b49-11e9-a38a-09f848b19644",
+              "status": "yellow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "coursekey": "jotain",
+      "coursematerial_name": "MAA3 - Geometria",
+      "version": "1",
+      "name": "Opettaja ei keksinyt",
+      "startdate": "2017-03-14",
+      "enddate": "2017-05-02",
+      "owner_id": 1234,
+      "students": [
+        {
+          "firstname": "Jorma",
+          "lastname": "Emmätiedä",
+          "exercises": [
+            {
+              "uuid": "12a9cc85-3b49-11e9-a38a-09f848b19644",
+              "status": "green"
+            },
+            {
+              "uuid": "12a9cc86-3b49-11e9-a38a-09f848b19644",
+              "status": "yellow"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

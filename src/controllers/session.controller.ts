@@ -7,4 +7,4 @@ router.post('/logout', (req, res) => {
   res.redirect(req.query.redirect)
 })
 
-export const SessionController: Router = router
+export const sessionController: Router = router

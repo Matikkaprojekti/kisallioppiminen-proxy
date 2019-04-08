@@ -1,13 +1,37 @@
-# kisallioppiminen-backend
+# kisallioppiminen-proxy
 
-Palvelin joka välittää pyyntöjä mockidataan tai oikealle back-endille riippuen ympäristöstä.
+Palvelin joka välittää pyyntöjä mockidataan tai "oikealle"(eli useinmiten lokaalille) back-endille riippuen ympäristömuuttujista.
 
-### Ohjeet backendin lokaaliin devauskäyttöön:
-1. `git clone git@github.com:Matikkaprojekti/kisallioppiminen-backend.git && cd kisallioppiminen-backend/ && npm install && npm run watch`
-2. Mene [tänne](https://ohtukisalli.github.io/) ja kirjaudu sisään.
-2. Mene [tänne](https://pure-inlet-98383.herokuapp.com/) ja ja avaa devtoolsista Application/Cookies
-5. Kopio _name_ ja _value_ kenttien sisällöt ja pastea ne [tänne](http://localhost:8080)
-6. Testaa lokaalin backendin toimivuus menemällä [tänne](http://localhost:8080/user)
+### Ohjeet proxyn lokaaliin devauskäyttöön:
+1. `git clone git@github.com:Matikkaprojekti/kisallioppiminen-proxy.git && cd kisallioppiminen-proxy/ && npm install`
+2. `cp .env.example .env` ja täytä kentät esim mockidatalle (eli testidatalle eli kovakoodatulle datalle):
+
+```
+NODE_ENV=test
+STAGING_BACKEND_ENTRYPOINT=
+DEV_BACKEND_ENTRYPOINT=http://localhost:8000
+PROD_BACKEND_ENTRYPOINT=
+DEV_CORS_ORIGIN=http://localhost:3000
+TEST_CORS_ORIGIN=http://localhost:3000
+STAGING_CORS_ORIGIN=
+PROD_CORS_ORIGIN=
+```
+Jos haluat käyttää lokaalia backendiä niin vaihda NODE_ENV=dev
+
+3 a. (MOCK DATA ELI NODE_ENV=test)
+* Testaa toimivuus menemällä http://localhost:8080/users/me , jonka pitäisi palauttaa unauthorized. Kun käynnistät frontendin, surffaat lokaaliin frontendiin(esimerkiksi http://localhost:3000 , niin "Jorman" pitäisi kirjautua automaatisesti(MOCK DATALLA) ja http://localhost:8080/users/me pitäisi palauttaa { user_id: 420, name: "Jorma" }.
+
+3 b. (LOKAALI BACKEND ELI NODE_ENV=dev)
+* Kirjautuminen vaatii google tunnuksen, ja kirjautuminen pitää suorittaa frontendin kautta. Huomaa myös että backendin pitää olla käynnissä, joko lokaalisti tai herokussa ja DEV_BACKEND_ENTRYPOINT sen mukainen! Ohjeet lokaalin backendin
+asennukseen löydät osoitteesta https://github.com/Matikkaprojekti/kisallioppiminen-backend
+
+3 c. (HEROKUN BACKEND)
+* Jos et halua asentaa backendiä lokaalisti, etkä tahdo käyttää mockidataa, aseta NODE_ENV=dev ja DEV_BACKEND_ENTRYPOINT=https://ko-be-staging.herokuapp.com
+
+4. `npm run watch`
+
+5. Eli kokonaisvaltaiseen end-to-end devaukseen pitää olla käynnissä yhtä aikaa frontend, proxy ja backend! 
+
 
 ### Tarjolla olevat urlit:
 
