@@ -22,12 +22,13 @@ router.post('/', fetchUser, async (req: UserRequest, res: Response) => {
 
   const token = req.get('Authorization')
 
-  if (coursekey && coursematerial_name && version && name && startdate && enddate) {
-    const result = await teacherCreatesTeachingInstanceService(req.body, token)
+    const result = await teacherCreatesTeachingInstanceService(req.body, token).catch(response => {
+      res.status(400).json({ error: response.error.error })
+    })
     res.json(result)
   } else {
     res.status(400)
-    res.json({ error: 'Bad request' })
+    res.json({ error: 'Please check your input!' })
   }
 })
 router.patch('/', fetchUser, async (req: UserRequest, res: Response) => {
