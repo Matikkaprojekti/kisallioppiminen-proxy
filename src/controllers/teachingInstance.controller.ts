@@ -32,22 +32,12 @@ router.post('/', fetchUser, async (req: UserRequest, res: Response) => {
   }
 })
 router.patch('/', fetchUser, async (req: UserRequest, res: Response) => {
-<<<<<<< 35dec4b971157115084693dc21757fae7a1fba25
-=======
-  const studentId = req.user.id
->>>>>>> Forward errors from backend
   const coursekey = req.body.coursekey
   const token = req.get('Authorization')
   if (coursekey) {
-<<<<<<< 35dec4b971157115084693dc21757fae7a1fba25
     userJoinsTeachingInstanceService(token, coursekey)
       .then(result => res.json(result))
       .catch(({ statusCode, body }) => res.status(statusCode || 500).json(body))
-=======
-    userJoinsTeachingInstanceService(token, user, coursekey)
-      .then(result => res.json(result))
-      .catch(({statusCode, body}) => res.status(statusCode || 500).json(body))
->>>>>>> Forward errors from backend
   } else {
     res.status(400)
     res.json({ error: 'Bad request' })
