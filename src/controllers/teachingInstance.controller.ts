@@ -35,9 +35,9 @@ router.patch('/', fetchUser, async (req: UserRequest, res: Response) => {
   const coursekey = req.body.coursekey
   const token = req.get('Authorization')
   if (coursekey) {
-    // userJoinsTeachingInstanceService(token, user, coursekey).then(teachingInstance => res.json(teachingInstance))
-    const result = await userJoinsTeachingInstanceService(token, coursekey)
-    res.send(result)
+    userJoinsTeachingInstanceService(token, coursekey)
+      .then(result => res.json(result))
+      .catch(({ statusCode, error }) => res.status(statusCode).json(error))
   } else {
     res.status(400)
     res.json({ error: 'Bad request' })
