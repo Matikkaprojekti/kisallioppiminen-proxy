@@ -16,7 +16,7 @@ const router: Router = Router()
 router.get('/', fetchUser, (req: UserRequest, res: Response) => {
   console.log('gettii tulee')
   if (!req.user) {
-    return res.status(401).json({error: 'Unauthorized'})
+    return res.status(401).json({ error: 'Unauthorized' })
   }
   const studentId = req.user.id
   const token = req.get('Authorization')
@@ -73,8 +73,15 @@ router.patch('/', fetchUser, async (req: UserRequest, res: Response) => {
   const token = req.get('Authorization')
   if (coursekey) {
     // userJoinsTeachingInstanceService(token, user, coursekey).then(teachingInstance => res.json(teachingInstance))
-    const result = await userJoinsTeachingInstanceService(token, user, coursekey)
-    res.send(result)
+    try {
+      const result = await userJoinsTeachingInstanceService(token, user, coursekey)
+      res.send(result)
+    } catch (error) {
+      console.log('error', error.error)
+      console.log('res')
+      res.status(400)
+      res.json({ error: error.error })
+    }
   } else {
     res.status(400)
     res.json({ error: 'Bad request' })
