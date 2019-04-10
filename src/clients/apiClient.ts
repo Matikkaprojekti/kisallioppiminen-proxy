@@ -9,7 +9,6 @@ export const client: typeof newApiClient & typeof MockApiClient = {
   getTeachingInstancesForUser: selectedClient.getTeachingInstancesForUser,
   userJoinsTeachingInstance: selectedClient.userJoinsTeachingInstance,
   userLeavesTeachingInstance: selectedClient.userLeavesTeachingInstance,
-  findUserById: selectedClient.findUserById,
   findTeachingInstanceByCourseKey: selectedClient.findTeachingInstanceByCourseKey,
   findOrCreateTeachinginstance: selectedClient.findOrCreateTeachinginstance,
   getUserWithToken: selectedClient.getUserWithToken,

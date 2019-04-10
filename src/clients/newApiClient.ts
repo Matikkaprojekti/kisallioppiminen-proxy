@@ -38,11 +38,6 @@ export function getTeachingInstancesForUser(token: string, teacher: boolean): Bl
     })
 }
 
-export function findUserById(id: number): any {
-  console.log('newApiClient: findUserById returns always null!')
-  return null
-}
-
 export function findTeachingInstanceByCourseKey(courseKey: string): any {
   return null
 }
@@ -62,14 +57,13 @@ export function teacherCreatesTeachingInstance(teachingInstance: Teachinginstanc
   )
 }
 
-export function userJoinsTeachingInstance(token: string, user: User, coursekey: string): Bluebird<UsersTeachingInstance> {
+export function userJoinsTeachingInstance(token: string, coursekey: string): Bluebird<UsersTeachingInstance> {
   const opts: request.RequestPromiseOptions = {
     headers: {
       Authorization: token
     },
     json: { coursekey }
   }
-  console.log('coursekey = ', coursekey)
   return (
     request
       .patch(resolveUrl('/teachinginstances'), opts)

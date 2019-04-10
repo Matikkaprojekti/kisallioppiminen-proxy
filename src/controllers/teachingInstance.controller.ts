@@ -2,9 +2,6 @@ import { Router, Request, Response } from 'express'
 import {
   userJoinsTeachingInstanceService,
   userLeavesTeachingInstanceService,
-  findUserByIdService,
-  // findOrCreateTeachingInstanceService,
-  findTeachingInstanceByCourseKeyService,
   getTeachingInstancesForUserService,
   teacherCreatesTeachingInstanceService
 } from '../services/teachingInstanceService'
@@ -34,13 +31,11 @@ router.post('/', fetchUser, async (req: UserRequest, res: Response) => {
   }
 })
 router.patch('/', fetchUser, async (req: UserRequest, res: Response) => {
-  const studentId = req.user.id
   const coursekey = req.body.coursekey
-  const user = await findUserByIdService(studentId)
   const token = req.get('Authorization')
   if (coursekey) {
     // userJoinsTeachingInstanceService(token, user, coursekey).then(teachingInstance => res.json(teachingInstance))
-    const result = await userJoinsTeachingInstanceService(token, user, coursekey)
+    const result = await userJoinsTeachingInstanceService(token, coursekey)
     res.send(result)
   } else {
     res.status(400)
@@ -49,9 +44,7 @@ router.patch('/', fetchUser, async (req: UserRequest, res: Response) => {
 })
 
 router.delete('/:coursekey', fetchUser, async (req: UserRequest, res: Response) => {
-  const studentId = req.user.id
   const coursekey = req.params.coursekey
-  // const user = await findUserByIdService(studentId)
   const token = req.get('Authorization')
   if (coursekey) {
     try {
