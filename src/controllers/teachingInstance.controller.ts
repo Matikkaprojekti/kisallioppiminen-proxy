@@ -21,7 +21,7 @@ router.post('/', fetchUser, async (req: UserRequest, res: Response) => {
   const { coursekey, name, startdate, enddate, coursematerial_name, version } = req.body
 
   const token = req.get('Authorization')
-
+  if (coursekey && coursematerial_name && version && name && startdate && enddate) {
     const result = await teacherCreatesTeachingInstanceService(req.body, token).catch(response => {
       res.status(400).json({ error: response.error.error })
     })

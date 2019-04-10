@@ -28,7 +28,7 @@ export function teacherCreatesTeachingInstance(teachingInstance: TeachingInstanc
 
 export function userJoinsTeachingInstance(token: string, coursekey: string): Bluebird<UsersTeachingInstance> {
   const ti = teachingInstancesMockData.find(e => e.coursekey === coursekey)
-  const student = userMock.user_id === 420 ? userMock : null
+  const student = userMock.id === 420 ? userMock : null
   if (ti) {
     const uti = <UsersTeachingInstance> {
       coursekey: ti.coursekey,
@@ -57,17 +57,6 @@ export function userLeavesTeachingInstance(token: string, coursekey: string): an
   return null
 }
 
-<<<<<<< 05d10d2d2a41a9cbbc6ef38dee0b3287bb0c28b3
-export function findUserById(id: number): Bluebird<UserApiResponse> {
-  const student = userMock.id === id ? userMock : null
-  console.log('eka')
-  console.log(student)
-  console.log('toka')
-  return Bluebird.resolve(student as UserApiResponse)
-}
-
-=======
->>>>>>> proxy doesnt findUserById
 export function findTeachingInstanceByCourseKey(courseKey: string): Bluebird<TeachingInstance> {
   const ti = teachingInstanceMock.find(e => e.coursekey === courseKey)
   return Bluebird.resolve(ti as TeachingInstance)
