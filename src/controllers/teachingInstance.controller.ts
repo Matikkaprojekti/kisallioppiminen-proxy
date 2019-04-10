@@ -76,8 +76,14 @@ router.delete('/:coursekey', fetchUser, async (req: UserRequest, res: Response) 
   // const user = await findUserByIdService(studentId)
   const token = req.get('Authorization')
   if (coursekey) {
-    const result = await userLeavesTeachingInstanceService(token, coursekey)
-    res.send(result)
+    try {
+      const result = await userLeavesTeachingInstanceService(token, coursekey)
+      console.log('result = ', result)
+      res.json(result)
+    } catch (e) {
+      console.log(e)
+      return res.status(500)
+    }
   } else {
     res.status(400)
     res.json({ error: 'Bad request' })
