@@ -16,7 +16,7 @@ const router: Router = Router()
 router.get('/', fetchUser, (req: UserRequest, res: Response) => {
   console.log('gettii tulee')
   if (!req.user) {
-    return res.status(401).json({error: 'Unauthorized'})
+    return res.status(401).json({ error: 'Unauthorized' })
   }
   const studentId = req.user.id
   const token = req.get('Authorization')
@@ -56,13 +56,15 @@ router.post('/', fetchUser, async (req: UserRequest, res: Response) => {
   // Check that required params are present
   if (coursekey && coursematerial_name && version && name && startdate && enddate) {
     console.log('eka')
-    const result = await teacherCreatesTeachingInstanceService(req.body, token)
+    const result = await teacherCreatesTeachingInstanceService(req.body, token).catch(response => {
+      res.status(400).json({ error: response.error.error })
+    })
     // const jsonresult = res.json(result)
-    console.log('result: ', result)
+    console.log('result:::::::::::::::::::::::::::::::::::::::::::::::::::::: ', result)
     res.json(result)
   } else {
     res.status(400)
-    res.json({ error: 'Bad request' })
+    res.json({ error: 'Please check your input!' })
   }
 })
 router.patch('/', fetchUser, async (req: UserRequest, res: Response) => {
