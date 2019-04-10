@@ -38,11 +38,6 @@ export function getTeachingInstancesForUser(token: string, teacher: boolean): Bl
     })
 }
 
-export function findUserById(id: number): any {
-  console.log('menee123456')
-  return null
-}
-
 export function findTeachingInstanceByCourseKey(courseKey: string): any {
   return null
 }
@@ -62,21 +57,31 @@ export function teacherCreatesTeachingInstance(teachingInstance: Teachinginstanc
   )
 }
 
-export function userJoinsTeachingInstance(token: string, user: User, coursekey: string): Bluebird<UsersTeachingInstance> {
-  console.log('pitäis tulla tänne')
+export function userJoinsTeachingInstance(token: string, coursekey: string): Bluebird<UsersTeachingInstance> {
   const opts: request.RequestPromiseOptions = {
     headers: {
       Authorization: token
     },
     json: { coursekey }
   }
-  console.log('coursekey = ', coursekey)
   return (
     request
       .patch(resolveUrl('/teachinginstances'), opts)
       // .then(JSON.parse)
       .then(res => res)
   )
+}
+
+export function userLeavesTeachingInstance(token: string, coursekey: string): any {
+  console.log('käyttäjä lähtee opetusinstanssista..')
+  const opts: request.RequestPromiseOptions = {
+    headers: {
+      Authorization: token
+    }
+  }
+  return request.delete(resolveUrl(`/teachinginstances/${coursekey}`), opts).then(res => {
+    return res
+  })
 }
 
 export function findOrCreateTeachinginstance(newTeachingInstance: Teachinginstance, token: string) {
