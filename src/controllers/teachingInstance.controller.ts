@@ -28,7 +28,7 @@ router.post('/', fetchUser, async (req: UserRequest, res: Response) => {
     res.json(result)
   } else {
     res.status(400)
-    res.json({ error: 'Please check your input!' })
+    res.json({ error: 'Tarkista syötteen arvot!' })
   }
 })
 router.patch('/', fetchUser, async (req: UserRequest, res: Response) => {
@@ -40,7 +40,7 @@ router.patch('/', fetchUser, async (req: UserRequest, res: Response) => {
       .catch(({ statusCode, error }) => res.status(statusCode).json(error))
   } else {
     res.status(400)
-    res.json({ error: 'Bad request' })
+    res.json({ error: 'Virheellinen pyyntö' })
   }
 })
 
@@ -57,7 +57,7 @@ router.delete('/:coursekey', fetchUser, async (req: UserRequest, res: Response) 
     }
   } else {
     res.status(400)
-    res.json({ error: 'Bad request' })
+    res.json({ error: 'Virheellinen pyyntö' })
   }
 })
 export const teachingInstanceController: Router = router
