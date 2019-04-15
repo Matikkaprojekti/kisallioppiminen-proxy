@@ -40,7 +40,7 @@ router.patch('/', fetchUser, async (req: UserRequest, res: Response) => {
       .catch(({ statusCode, error }) => res.status(statusCode).json(error))
   } else {
     res.status(400)
-    res.json({ error: 'Pyyntöä ei voida toteuttaa' })
+    res.json({ error: 'Virheellinen pyyntö' })
   }
 })
 
@@ -57,7 +57,7 @@ router.delete('/:coursekey', fetchUser, async (req: UserRequest, res: Response) 
     }
   } else {
     res.status(400)
-    res.json({ error: 'Pyyntöä ei voida toteuttaa' })
+    res.json({ error: 'Virheellinen pyyntö' })
   }
 })
 export const teachingInstanceController: Router = router
