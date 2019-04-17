@@ -42,17 +42,5 @@ router.delete('/:coursekey', fetchUser, async (req: UserRequest, res: Response) 
   userLeavesTeachingInstanceService(token, coursekey)
     .then(result => res.json(result))
     .catch(({ statusCode, error }) => res.status(statusCode).json(error))
-  // if (coursekey) {
-  //   try {
-  //     const result = await userLeavesTeachingInstanceService(token, coursekey)
-  //     res.json(result)
-  //   } catch (e) {
-  //     console.log(e)
-  //     return res.status(500)
-  //   }
-  // } else {
-  //   res.status(400)
-  //   res.json({ error: 'Bad request' })
-  // }
 })
 export const teachingInstanceController: Router = router

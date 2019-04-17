@@ -1,12 +1,10 @@
-import { UserApiResponse, ApiCourseObject, ApiNewCoursePostObject, ApiTeachingInstanceObject, ApiCourseStudent } from '../types/apiTypes'
+import { UserApiResponse, ApiCourseObject, ApiNewCoursePostObject } from '../types/apiTypes'
 import userMock from '../mockdata/user.json'
 import Bluebird from 'bluebird'
-import allScoreboards from '../mockdata/allScoreboards.json'
 import courses from '../mockdata/courses.json'
 import teachingInstanceMock from '../mockdata/teachingInstances.json'
 import usersTeachingInstancesMock from '../mockdata/usersTeachingInstances.json'
 import TeachingInstance from '../models/TeachingInstance'
-import User from '../models/User'
 import UsersTeachingInstance from '../models/UsersTeachingInstance'
 
 const teachingInstancesMockData = teachingInstanceMock
