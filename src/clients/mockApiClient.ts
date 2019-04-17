@@ -12,8 +12,8 @@ import UsersTeachingInstance from '../models/UsersTeachingInstance'
 const teachingInstancesMockData = teachingInstanceMock
 const usersTeachingInstancesMockData = usersTeachingInstancesMock
 
-export function updateOrCreateTrafficlight(token: string, status: string, coursekey: string, exercise_uuid: string, user_id: number): Bluebird<{}> {
-  return null
+export function updateOrCreateTrafficlight(token: string, status: string, coursekey: string, exercise_uuid: string): Bluebird<{ message: string }> {
+  return Bluebird.resolve({ message: 'Päivitys valmis222' })
 }
 
 export function getTeachingInstancesForUser(token: string, _: boolean): Bluebird<UsersTeachingInstance[]> {
