@@ -11,7 +11,7 @@ const teachingInstancesMockData = teachingInstanceMock
 const usersTeachingInstancesMockData = usersTeachingInstancesMock
 
 export function updateOrCreateTrafficlight(token: string, status: string, coursekey: string, exercise_uuid: string): Bluebird<{ message: string }> {
-  return Bluebird.resolve({ message: 'Päivitys valmis222' })
+  return Bluebird.resolve({ message: 'Päivitys valmis' })
 }
 
 export function getTeachingInstancesForUser(token: string, _: boolean): Bluebird<UsersTeachingInstance[]> {
