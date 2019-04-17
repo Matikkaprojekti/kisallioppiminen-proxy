@@ -10,7 +10,7 @@ const ENTRYPOINT = resolveEnvVar('BACKEND_ENTRYPOINT')
 
 const resolveUrl = (endpoint: string) => ENTRYPOINT + endpoint
 
-export function updateOrCreateTrafficlight(token: string, exercise_uuid: string, coursekey: string, status: string, user_id: number): Bluebird<{}> {
+export function updateOrCreateTrafficlight(token: string, exercise_uuid: string, coursekey: string, status: string): Bluebird<{ message: string }> {
   const opts: request.RequestPromiseOptions = {
     headers: {
       Authorization: token
@@ -72,16 +72,22 @@ export function userJoinsTeachingInstance(token: string, coursekey: string): Blu
   )
 }
 
-export function userLeavesTeachingInstance(token: string, coursekey: string): any {
+export function userLeavesTeachingInstance(token: string, coursekey: string) {
   console.log('käyttäjä lähtee opetusinstanssista..')
+  console.log('kurssiavain = ', coursekey)
   const opts: request.RequestPromiseOptions = {
     headers: {
       Authorization: token
     }
   }
-  return request.delete(resolveUrl(`/teachinginstances/${coursekey}`), opts).then(res => {
-    return res
-  })
+  return request
+    .delete(resolveUrl(`/teachinginstances/${coursekey}`), opts)
+    .then(JSON.parse)
+    .then(res => res)
+    .catch(e => {
+      console.error(e)
+      return null
+    })
 }
 
 export function findOrCreateTeachinginstance(newTeachingInstance: Teachinginstance, token: string) {

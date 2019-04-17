@@ -1,19 +1,17 @@
-import { UserApiResponse, ApiCourseObject, ApiNewCoursePostObject, ApiTeachingInstanceObject, ApiCourseStudent } from '../types/apiTypes'
+import { UserApiResponse, ApiCourseObject, ApiNewCoursePostObject } from '../types/apiTypes'
 import userMock from '../mockdata/user.json'
 import Bluebird from 'bluebird'
-import allScoreboards from '../mockdata/allScoreboards.json'
 import courses from '../mockdata/courses.json'
 import teachingInstanceMock from '../mockdata/teachingInstances.json'
 import usersTeachingInstancesMock from '../mockdata/usersTeachingInstances.json'
 import TeachingInstance from '../models/TeachingInstance'
-import User from '../models/User'
 import UsersTeachingInstance from '../models/UsersTeachingInstance'
 
 const teachingInstancesMockData = teachingInstanceMock
 const usersTeachingInstancesMockData = usersTeachingInstancesMock
 
-export function updateOrCreateTrafficlight(token: string, status: string, coursekey: string, exercise_uuid: string, user_id: number): Bluebird<{}> {
-  return null
+export function updateOrCreateTrafficlight(token: string, status: string, coursekey: string, exercise_uuid: string): Bluebird<{ message: string }> {
+  return Bluebird.resolve({ message: 'Päivitys valmis' })
 }
 
 export function getTeachingInstancesForUser(token: string, _: boolean): Bluebird<UsersTeachingInstance[]> {
