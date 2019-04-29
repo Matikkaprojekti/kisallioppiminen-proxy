@@ -3,7 +3,8 @@ import {
   userJoinsTeachingInstanceService,
   userLeavesTeachingInstanceService,
   getTeachingInstancesForUserService,
-  teacherCreatesTeachingInstanceService
+  teacherCreatesTeachingInstanceService,
+  teacherDeletesTeachingInstanceService
 } from '../services/teachingInstanceService'
 import { UserRequest } from '../middlewares/userAuthMiddleware'
 import { fetchUser } from '../middlewares/userAuthMiddleware'
@@ -35,12 +36,23 @@ router.patch('/', fetchUser, async (req: UserRequest, res: Response) => {
     .catch(({ statusCode, error }) => res.status(statusCode).json(error))
 })
 
-router.delete('/:coursekey', fetchUser, async (req: UserRequest, res: Response) => {
+router.delete('/:coursekey/:teacher', fetchUser, async (req: UserRequest, res: Response) => {
   const coursekey = req.params.coursekey
+  const teacher = req.params.teacher
   const token = req.get('Authorization')
 
-  userLeavesTeachingInstanceService(token, coursekey)
-    .then(result => res.json(result))
-    .catch(({ statusCode, error }) => res.status(statusCode).json(error))
+  if (teacher !== 'true' && teacher !== 'false') {
+    return res.status(400).json({ error: 'Virheelliset roolitiedot' })
+  }
+
+  if (teacher === 'true') {
+    teacherDeletesTeachingInstanceService(token, coursekey, teacher)
+      .then(result => res.json(result))
+      .catch(({ statusCode, error }) => res.status(statusCode).json(error))
+  } else {
+    userLeavesTeachingInstanceService(token, coursekey, teacher)
+      .then(result => res.json(result))
+      .catch(({ statusCode, error }) => res.status(statusCode).json(error))
+  }
 })
 export const teachingInstanceController: Router = router

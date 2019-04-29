@@ -7,7 +7,8 @@ const {
   userJoinsTeachingInstance,
   userLeavesTeachingInstance,
   findOrCreateTeachinginstance,
-  findTeachingInstanceByCourseKey
+  findTeachingInstanceByCourseKey,
+  teacherDeletesTeachingInstance
 } = client
 
 export function teacherCreatesTeachingInstanceService(teachingInstance: Teachinginstance, token: string) {
@@ -20,8 +21,8 @@ export function getTeachingInstancesForUserService(token: string, teacher: boole
 export function userJoinsTeachingInstanceService(token: string, coursekey: string) {
   return userJoinsTeachingInstance(token, coursekey)
 }
-export function userLeavesTeachingInstanceService(token: string, coursekey: string) {
-  return userLeavesTeachingInstance(token, coursekey)
+export function userLeavesTeachingInstanceService(token: string, coursekey: string, teacher: string) {
+  return userLeavesTeachingInstance(token, coursekey, teacher)
 }
 
 export function findOrCreateTeachingInstanceService(nt: Teachinginstance, token: string) {
@@ -30,4 +31,8 @@ export function findOrCreateTeachingInstanceService(nt: Teachinginstance, token:
 
 export function findTeachingInstanceByCourseKeyService(courseKey: string): any {
   return findTeachingInstanceByCourseKey(courseKey)
+}
+
+export function teacherDeletesTeachingInstanceService(token: string, coursekey: string, teacher: string) {
+  return teacherDeletesTeachingInstance(token, coursekey, teacher)
 }

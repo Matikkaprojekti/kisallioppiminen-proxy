@@ -72,7 +72,7 @@ export function userJoinsTeachingInstance(token: string, coursekey: string): Blu
   )
 }
 
-export function userLeavesTeachingInstance(token: string, coursekey: string) {
+export function userLeavesTeachingInstance(token: string, coursekey: string, teacher: string) {
   console.log('käyttäjä lähtee opetusinstanssista..')
   console.log('kurssiavain = ', coursekey)
   const opts: request.RequestPromiseOptions = {
@@ -81,7 +81,24 @@ export function userLeavesTeachingInstance(token: string, coursekey: string) {
     }
   }
   return request
-    .delete(resolveUrl(`/teachinginstances/${coursekey}`), opts)
+    .delete(resolveUrl(`/teachinginstances/${coursekey}?teacher=${teacher}`), opts)
+    .then(JSON.parse)
+    .then(res => res)
+    .catch(e => {
+      console.error(e)
+      return null
+    })
+}
+
+export function teacherDeletesTeachingInstance(token: string, coursekey: string, teacher: string) {
+  console.log('opetusinstanssi poistetaan')
+  const opts: request.RequestPromiseOptions = {
+    headers: {
+      Authorization: token
+    }
+  }
+  return request
+    .delete(resolveUrl(`/teachinginstances/${coursekey}?teacher=${teacher}`), opts)
     .then(JSON.parse)
     .then(res => res)
     .catch(e => {

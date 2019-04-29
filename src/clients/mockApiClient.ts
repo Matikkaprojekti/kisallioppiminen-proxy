@@ -51,7 +51,11 @@ export function userJoinsTeachingInstance(token: string, coursekey: string): Blu
   return null
 }
 
-export function userLeavesTeachingInstance(token: string, coursekey: string): any {
+export function userLeavesTeachingInstance(token: string, coursekey: string, teacher: string): any {
+  return null
+}
+
+export function teacherDeletesTeachingInstance(token: string, coursekey: string, teacher: string): any {
   return null
 }
 
