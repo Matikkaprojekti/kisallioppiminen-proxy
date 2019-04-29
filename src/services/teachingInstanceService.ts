@@ -21,7 +21,7 @@ export function getTeachingInstancesForUserService(token: string, teacher: boole
 export function userJoinsTeachingInstanceService(token: string, coursekey: string) {
   return userJoinsTeachingInstance(token, coursekey)
 }
-export function userLeavesTeachingInstanceService(token: string, coursekey: string, teacher: string) {
+export function userLeavesTeachingInstanceService(token: string, coursekey: string, teacher: boolean) {
   return userLeavesTeachingInstance(token, coursekey, teacher)
 }
 
@@ -33,6 +33,6 @@ export function findTeachingInstanceByCourseKeyService(courseKey: string): any {
   return findTeachingInstanceByCourseKey(courseKey)
 }
 
-export function teacherDeletesTeachingInstanceService(token: string, coursekey: string, teacher: string) {
+export function teacherDeletesTeachingInstanceService(token: string, coursekey: string, teacher: boolean) {
   return teacherDeletesTeachingInstance(token, coursekey, teacher)
 }

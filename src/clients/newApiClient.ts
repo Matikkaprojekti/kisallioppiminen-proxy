@@ -72,7 +72,7 @@ export function userJoinsTeachingInstance(token: string, coursekey: string): Blu
   )
 }
 
-export function userLeavesTeachingInstance(token: string, coursekey: string, teacher: string) {
+export function userLeavesTeachingInstance(token: string, coursekey: string, teacher: boolean) {
   console.log('käyttäjä lähtee opetusinstanssista..')
   console.log('kurssiavain = ', coursekey)
   const opts: request.RequestPromiseOptions = {
@@ -81,7 +81,7 @@ export function userLeavesTeachingInstance(token: string, coursekey: string, tea
     }
   }
   return request
-    .delete(resolveUrl(`/teachinginstances/${coursekey}?teacher=${teacher}`), opts)
+    .delete(resolveUrl(`/teachinginstances/${coursekey}/` + String(teacher)), opts)
     .then(JSON.parse)
     .then(res => res)
     .catch(e => {
@@ -90,7 +90,7 @@ export function userLeavesTeachingInstance(token: string, coursekey: string, tea
     })
 }
 
-export function teacherDeletesTeachingInstance(token: string, coursekey: string, teacher: string) {
+export function teacherDeletesTeachingInstance(token: string, coursekey: string, teacher: boolean) {
   console.log('opetusinstanssi poistetaan')
   const opts: request.RequestPromiseOptions = {
     headers: {
@@ -98,7 +98,7 @@ export function teacherDeletesTeachingInstance(token: string, coursekey: string,
     }
   }
   return request
-    .delete(resolveUrl(`/teachinginstances/${coursekey}?teacher=${teacher}`), opts)
+    .delete(resolveUrl(`/teachinginstances/${coursekey}/` + String(teacher)), opts)
     .then(JSON.parse)
     .then(res => res)
     .catch(e => {

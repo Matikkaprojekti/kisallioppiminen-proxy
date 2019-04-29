@@ -36,21 +36,23 @@ router.patch('/', fetchUser, async (req: UserRequest, res: Response) => {
     .catch(({ statusCode, error }) => res.status(statusCode).json(error))
 })
 
-router.delete('/:coursekey/:teacher', fetchUser, async (req: UserRequest, res: Response) => {
+router.delete('/:coursekey', fetchUser, async (req: UserRequest, res: Response) => {
   const coursekey = req.params.coursekey
-  const teacher = req.params.teacher
+  const teacher = req.query.teacher
   const token = req.get('Authorization')
 
   if (teacher !== 'true' && teacher !== 'false') {
     return res.status(400).json({ error: 'Virheelliset roolitiedot' })
   }
 
-  if (teacher === 'true') {
-    teacherDeletesTeachingInstanceService(token, coursekey, teacher)
+  const isTeacher = teacher === 'true'
+
+  if (isTeacher) {
+    teacherDeletesTeachingInstanceService(token, coursekey, isTeacher)
       .then(result => res.json(result))
       .catch(({ statusCode, error }) => res.status(statusCode).json(error))
   } else {
-    userLeavesTeachingInstanceService(token, coursekey, teacher)
+    userLeavesTeachingInstanceService(token, coursekey, isTeacher)
       .then(result => res.json(result))
       .catch(({ statusCode, error }) => res.status(statusCode).json(error))
   }
