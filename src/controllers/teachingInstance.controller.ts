@@ -1,10 +1,9 @@
 import { Router, Request, Response } from 'express'
 import {
   userJoinsTeachingInstanceService,
-  userLeavesTeachingInstanceService,
   getTeachingInstancesForUserService,
   teacherCreatesTeachingInstanceService,
-  teacherDeletesTeachingInstanceService
+  leaveOrDeleteTeachingInstanceService
 } from '../services/teachingInstanceService'
 import { UserRequest } from '../middlewares/userAuthMiddleware'
 import { fetchUser } from '../middlewares/userAuthMiddleware'
@@ -47,14 +46,9 @@ router.delete('/:coursekey', fetchUser, async (req: UserRequest, res: Response) 
 
   const isTeacher = teacher === 'true'
 
-  if (isTeacher) {
-    teacherDeletesTeachingInstanceService(token, coursekey, isTeacher)
-      .then(result => res.json(result))
-      .catch(({ statusCode, error }) => res.status(statusCode).json(error))
-  } else {
-    userLeavesTeachingInstanceService(token, coursekey, isTeacher)
-      .then(result => res.json(result))
-      .catch(({ statusCode, error }) => res.status(statusCode).json(error))
-  }
+  leaveOrDeleteTeachingInstanceService(token, coursekey, isTeacher)
+    .then(result => res.json(result))
+    .catch(({ statusCode, error }) => res.status(statusCode).json(error))
+
 })
 export const teachingInstanceController: Router = router

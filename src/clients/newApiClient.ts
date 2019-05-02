@@ -71,25 +71,7 @@ export function userJoinsTeachingInstance(token: string, coursekey: string): Blu
   )
 }
 
-export function userLeavesTeachingInstance(token: string, coursekey: string, teacher: boolean) {
-  console.log('käyttäjä lähtee opetusinstanssista..')
-  console.log('kurssiavain = ', coursekey)
-  const opts: request.RequestPromiseOptions = {
-    headers: {
-      Authorization: token
-    }
-  }
-  return request
-    .delete(resolveUrl(`/teachinginstances/${coursekey}/` + String(teacher)), opts)
-    .then(JSON.parse)
-    .then(res => res)
-    .catch(e => {
-      console.error(e)
-      return null
-    })
-}
-
-export function teacherDeletesTeachingInstance(token: string, coursekey: string, teacher: boolean) {
+export function leaveOrDeleteTeachingInstance(token: string, coursekey: string, teacher: boolean) {
   const opts: request.RequestPromiseOptions = {
     headers: {
       Authorization: token
