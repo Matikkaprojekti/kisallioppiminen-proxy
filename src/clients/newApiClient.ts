@@ -1,9 +1,8 @@
 import request from 'request-promise'
 import Bluebird from 'bluebird'
-import { UserApiResponse, ApiNewCoursePostObject, ApiCourseObject, ApiTeachingInstanceObject } from '../types/apiTypes'
+import { UserApiResponse, ApiNewCoursePostObject, ApiCourseObject } from '../types/apiTypes'
 import { resolveEnvVar } from '../utils/resolveEnvironmentVariable'
 import Teachinginstance from '../models/TeachingInstance'
-import User from '../models/User'
 import UsersTeachingInstance from '../models/UsersTeachingInstance'
 
 const ENTRYPOINT = resolveEnvVar('BACKEND_ENTRYPOINT')
@@ -91,7 +90,6 @@ export function userLeavesTeachingInstance(token: string, coursekey: string, tea
 }
 
 export function teacherDeletesTeachingInstance(token: string, coursekey: string, teacher: boolean) {
-  console.log('opetusinstanssi poistetaan')
   const opts: request.RequestPromiseOptions = {
     headers: {
       Authorization: token
