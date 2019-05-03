@@ -1,9 +1,9 @@
 import { Router, Request, Response } from 'express'
 import {
   userJoinsTeachingInstanceService,
-  userLeavesTeachingInstanceService,
   getTeachingInstancesForUserService,
-  teacherCreatesTeachingInstanceService
+  teacherCreatesTeachingInstanceService,
+  leaveOrDeleteTeachingInstanceService
 } from '../services/teachingInstanceService'
 import { UserRequest } from '../middlewares/userAuthMiddleware'
 import { fetchUser } from '../middlewares/userAuthMiddleware'
@@ -37,10 +37,18 @@ router.patch('/', fetchUser, async (req: UserRequest, res: Response) => {
 
 router.delete('/:coursekey', fetchUser, async (req: UserRequest, res: Response) => {
   const coursekey = req.params.coursekey
+  const teacher = req.query.teacher
   const token = req.get('Authorization')
 
-  userLeavesTeachingInstanceService(token, coursekey)
+  if (teacher !== 'true' && teacher !== 'false') {
+    return res.status(400).json({ error: 'Virheelliset roolitiedot' })
+  }
+
+  const isTeacher = teacher === 'true'
+
+  leaveOrDeleteTeachingInstanceService(token, coursekey, isTeacher)
     .then(result => res.json(result))
     .catch(({ statusCode, error }) => res.status(statusCode).json(error))
+
 })
 export const teachingInstanceController: Router = router

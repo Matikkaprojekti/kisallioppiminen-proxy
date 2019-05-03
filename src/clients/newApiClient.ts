@@ -1,9 +1,8 @@
 import request from 'request-promise'
 import Bluebird from 'bluebird'
-import { UserApiResponse, ApiNewCoursePostObject, ApiCourseObject, ApiTeachingInstanceObject } from '../types/apiTypes'
+import { UserApiResponse, ApiNewCoursePostObject, ApiCourseObject } from '../types/apiTypes'
 import { resolveEnvVar } from '../utils/resolveEnvironmentVariable'
 import Teachinginstance from '../models/TeachingInstance'
-import User from '../models/User'
 import UsersTeachingInstance from '../models/UsersTeachingInstance'
 
 const ENTRYPOINT = resolveEnvVar('BACKEND_ENTRYPOINT')
@@ -72,16 +71,14 @@ export function userJoinsTeachingInstance(token: string, coursekey: string): Blu
   )
 }
 
-export function userLeavesTeachingInstance(token: string, coursekey: string) {
-  console.log('käyttäjä lähtee opetusinstanssista..')
-  console.log('kurssiavain = ', coursekey)
+export function leaveOrDeleteTeachingInstance(token: string, coursekey: string, teacher: boolean) {
   const opts: request.RequestPromiseOptions = {
     headers: {
       Authorization: token
     }
   }
   return request
-    .delete(resolveUrl(`/teachinginstances/${coursekey}`), opts)
+    .delete(resolveUrl(`/teachinginstances/${coursekey}/` + String(teacher)), opts)
     .then(JSON.parse)
     .then(res => res)
     .catch(e => {
